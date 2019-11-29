@@ -1,0 +1,9 @@
+canvas {
+  display: block;
+  margin: 0 auto;
+  border: 3px solid #000;
+  border-radius: 10px;
+}
+body {
+  background: lightblue;
+}
