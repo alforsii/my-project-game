@@ -22,13 +22,19 @@ class Game {
     // this.food.getImg();
     // this.snake.drawSnake();
     // this.snake.move();
-    this.intervalID = setInterval(() => {
-      this.clear();
-      this.drawGround();
-      this.food.getImg();
-      this.snake.drawSnake();
-      this.snake.move();
-    }, 150);
+    if (this.snake.state) {
+      this.intervalID = setInterval(() => {
+        console.log(
+          'Output for: Game -> constructor -> this.state',
+          this.snake.state
+        );
+        this.clear();
+        this.drawGround();
+        this.food.getImg();
+        this.snake.drawSnake();
+        this.snake.move();
+      }, 150);
+    }
   }
 
   drawGround() {
@@ -68,6 +74,7 @@ class Game {
     this.clear();
     // //1.Display image.
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
+    document.getElementById('restart-button').classList.remove('display-none');
     // //2.Draw 'Game Over' text.
     // this.ctx.fillStyle = 'red';
     // this.ctx.textAlign = 'center';

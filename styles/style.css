@@ -7,15 +7,28 @@ canvas {
 body {
   background: lightblue;
 }
-body button {
-  font-size: 20px;
-  background-color: black;
-  color: #fff;
-  padding: 10px 20px;
-  border: 0;
-  box-shadow: 0;
-  border-radius: 5px;
-  margin-bottom: 20px;
+#start-button {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 100px;
+  font-weight: bolder;
+  background-color: transparent;
+  color: #0f0;
+  border: none;
+  margin-bottom: 200px;
+  position: relative;
+  top: 30px;
+  left: 400px;
+}
+#restart-button {
+  color: white;
+  font-size: 50px;
+  background-color: transparent;
+  position: absolute;
+  top: 70px;
+  left: 400px;
+}
+img {
+  position: absolute;
 }
 .display-none {
   display: none;

@@ -3,16 +3,15 @@ class Snake {
     this.game = game;
     this.sound = new Sound();
     this.life = 3;
-    this.centerX = 9;
-    this.centerY = 10;
     this.snakeRoute = [
       {
-        x: this.centerX * this.game.box,
-        y: this.centerY * this.game.box,
+        x: 9 * this.game.box,
+        y: 10 * this.game.box,
         w: this.game.box,
         h: this.game.box,
       },
     ];
+    this.state = true;
     this.fillColor = 'orange';
     this.strokeColor = 'black';
     this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse. Example, if we are going up we cannot go down or when going right we can't go left until we go up or down and then left, and so on.
@@ -97,11 +96,15 @@ class Snake {
       snakeX > 18 * this.game.box ||
       snakeY < 2 * this.game.box ||
       snakeY > 19 * this.game.box ||
-      this.collision(this.newHead, this.snakeRoute)
+      this.collision(this.newHead, aSnake)
     ) {
-      clearInterval(this.game.intervalID);
-      this.sound.dead.play();
+      this.state = false;
+      // clearInterval(this.game.intervalID);
       this.game.gameOver();
+      // this.sound.dead.play();
+      if (this.game.state === 'game-over') {
+      }
+
       // this.sound.endGame.play();
     }
     this.snakeRoute.unshift(this.newHead);
