@@ -82,6 +82,7 @@ class Snake {
     if (snakeX === this.game.food.x && snakeY === this.game.food.y) {
       this.game.score++;
       this.sound.eat.play();
+      this.game.food.randomizeImg();
       this.game.food.x = Math.floor(Math.random() * 17 + 1) * this.game.box;
       this.game.food.y = Math.floor(Math.random() * 15 + 2) * this.game.box;
 
