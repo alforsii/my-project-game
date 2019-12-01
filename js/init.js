@@ -13,15 +13,16 @@ window.addEventListener('load', () => {
     newGame.canvas.classList.remove('display-none');
     newGame.startTheGame();
   };
-  //reStart
+  //Reset.
   restart.addEventListener('click', event => {
     newGame.clear();
     restart.classList.add('display-none');
     newGame.drawGround();
+    newGame.food.randomizeImg();
     newGame.food.getImg();
     newGame.snake.dir = undefined;
     newGame.score = 0;
-    newGame.snake.life--;
+    newGame.snake.length = 1;
     newGame.snake.state = true;
     newGame.snake.snakeRoute = [
       {

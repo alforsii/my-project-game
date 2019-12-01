@@ -65,7 +65,7 @@ class Game {
     this.ctx.fillStyle = 'white';
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 100, 50);
-    this.ctx.fillText(`Life: ${this.snake.life}`, 400, 50);
+    this.ctx.fillText(`Length: ${this.snake.length}`, 400, 50);
   }
   clear() {
     this.ctx.clearRect(0, 0, this.width, this.height);

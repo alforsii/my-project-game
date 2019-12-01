@@ -2,7 +2,7 @@ class Snake {
   constructor(game) {
     this.game = game;
     this.sound = new Sound();
-    this.life = 3;
+    this.length = 1;
     this.snakeRoute = [
       {
         x: 9 * this.game.box,
@@ -80,6 +80,7 @@ class Snake {
 
     if (snakeX === this.game.food.x && snakeY === this.game.food.y) {
       this.game.score++;
+      this.length++;
       this.sound.eat.play();
       this.game.food.randomizeImg();
       this.game.food.x = Math.floor(Math.random() * 17 + 1) * this.game.box;
@@ -98,27 +99,13 @@ class Snake {
       snakeY > 19 * this.game.box ||
       this.collision(this.newHead, aSnake)
     ) {
-      this.state = false;
-      // clearInterval(this.game.intervalID);
-      this.game.gameOver();
-      // this.sound.dead.play();
-      if (this.game.state === 'game-over') {
+      if (this.state) {
+        this.sound.dead.play();
+        this.state = false;
       }
-
-      // this.sound.endGame.play();
+      this.game.gameOver();
     }
     this.snakeRoute.unshift(this.newHead);
-    // //newHead
-    //game over
-
-    // console.log(
-    //   'Output for: Snake -> drawSnake -> this.game.food.x',
-    //   this.game.food
-    // );
-    // console.log(
-    //   'Output for: Snake -> drawSnake -> this.snakeRoute',
-    //   this.snakeRoute
-    // );
   }
 
   // check for collision. This collision is not with border, this is with snake it self.
