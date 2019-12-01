@@ -1,4 +1,4 @@
-class Component {
+class Food {
   constructor(game, x, y, w, h) {
     this.game = game;
     this.x = x;
