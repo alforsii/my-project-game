@@ -1,16 +1,15 @@
-// class Sound{
-//     constructor(){
-//         this.dead =new Audio();
-//         this.eat = new Audio();
-//         this.moveSound =new Audio()
-//         this.source = {
-//             dead: './audio/dead.mp3',
-//             moveAudio: './audio/down.mp3',
-//             eat: './audio/eat.mp3',
-//           };
-//     }
-
-// }
+class Sound {
+  constructor() {
+    this.dead = new Audio();
+    this.eat = new Audio();
+    this.moveSound = new Audio();
+    this.endGame = new Audio();
+    this.dead.src = './audio/dead.mp3';
+    this.eat.src = './sounds/coin.mp3';
+    this.moveSound.src = 'sounds/jump.wav';
+    this.endGame.src = './sounds/theme-music.wav';
+  }
+}
 
 // let dead = new Audio();
 // let eat = new Audio();
