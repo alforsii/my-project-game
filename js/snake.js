@@ -93,7 +93,7 @@ class Snake {
         this.sound.dead.play();
         this.state = false;
       }
-      // clearInterval(this.game.interID);
+      clearInterval(this.game.interID);
       this.game.gameOver();
       return;
     }

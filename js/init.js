@@ -40,6 +40,7 @@ window.addEventListener('load', () => {
             h: newGame.box,
           },
         ];
+        newGame.startTheGame();
         break;
       //Exit game
       case 'exit-button':
@@ -48,9 +49,12 @@ window.addEventListener('load', () => {
         break;
     }
   };
-  function animate() {
-    requestAnimationFrame(animate);
-    newGame.startTheGame();
-  }
-  animate();
+  // function animate(timeStamp) {
+  //   if (timeStamp >= this.newGame.accumulatedTime + this.newGame.timeStep) {
+  //     this.newGame.accumulatedTime = timeStamp;
+  //     newGame.startTheGame();
+  //   }
+  //   window.requestAnimationFrame(animate);
+  // }
+  // window.requestAnimationFrame(animate);
 });

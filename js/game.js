@@ -17,17 +17,19 @@ class Game {
     this.score = 0;
     this.timeSpeed = 150;
     this.interID = undefined;
+    this.accumulatedTime = 0;
+    this.timeStep = 250;
   }
   startTheGame() {
-    // if (this.snake.state) {
-    // this.interID = setInterval(() => {
-    this.clear();
-    this.drawGround();
-    this.food.getImg();
-    this.snake.drawSnake();
-    this.snake.move();
-    // }, this.timeSpeed);
-    // }
+    if (this.snake.state) {
+      this.interID = setInterval(() => {
+        this.clear();
+        this.drawGround();
+        this.food.getImg();
+        this.snake.drawSnake();
+        this.snake.move();
+      }, this.timeSpeed);
+    }
   }
 
   drawGround() {
