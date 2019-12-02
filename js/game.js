@@ -15,26 +15,19 @@ class Game {
     this.gameOverImg = new Image();
     this.gameOverImg.src = './img/game-over-2.png';
     this.score = 0;
-    this.intervalID = undefined;
+    this.timeSpeed = 150;
+    this.interID = undefined;
   }
   startTheGame() {
-    // this.drawGround();
-    // this.food.getImg();
-    // this.snake.drawSnake();
-    // this.snake.move();
-    if (this.snake.state) {
-      this.intervalID = setInterval(() => {
-        console.log(
-          'Output for: Game -> constructor -> this.state',
-          this.snake.state
-        );
-        this.clear();
-        this.drawGround();
-        this.food.getImg();
-        this.snake.drawSnake();
-        this.snake.move();
-      }, 150);
-    }
+    // if (this.snake.state) {
+    // this.interID = setInterval(() => {
+    this.clear();
+    this.drawGround();
+    this.food.getImg();
+    this.snake.drawSnake();
+    this.snake.move();
+    // }, this.timeSpeed);
+    // }
   }
 
   drawGround() {
@@ -75,6 +68,7 @@ class Game {
     // //1.Display image.
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
     document.getElementById('restart-button').classList.remove('display-none');
+    document.getElementById('exit-button').classList.remove('display-none');
     // //2.Draw 'Game Over' text.
     // this.ctx.fillStyle = 'red';
     // this.ctx.textAlign = 'center';

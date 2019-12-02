@@ -129,6 +129,8 @@ window.addEventListener('load', () => {
     if (snakeX == food.x && snakeY == food.y) {
       score++;
       eat.play();
+      console.log('Output for: draw -> food', food);
+      console.log('Output for: draw -> food', snake);
       food = {
         x: Math.floor(Math.random() * 17 + 1) * box,
         y: Math.floor(Math.random() * 15 + 2) * box,
