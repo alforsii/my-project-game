@@ -40,6 +40,9 @@ window.addEventListener('load', () => {
             h: newGame.box,
           },
         ];
+        //This startTheGame() needs to be at the bottom,
+        // after resetting all components in order to restart the game.
+        // Otherwise it will not work.
         newGame.startTheGame();
         break;
       //Exit game

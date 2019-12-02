@@ -14,10 +14,9 @@ class Snake {
     this.state = false;
     this.fillColor = 'orange';
     this.strokeColor = 'black';
-    this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse. Example, if we are going up we cannot go down or when going right we can't go left until we go up or down and then left, and so on.
-    this.newHead = undefined; //this is the  head object, which we will add to the beginning of our snake array to increase the length when snake eats food.
+    this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse while in motion.
   }
-
+  // //-------------------------move()----------------------------------------
   move() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
@@ -43,15 +42,16 @@ class Snake {
       }
     });
   }
-
+  // //-------------------------drawSnake()-------------------------
   drawSnake() {
-    //1. Create snake object, which is in our case rectangle with size of box=32 in game.js
+    //---move up-down and left-right - remote controller.-----
     let aSnake = this.snakeRoute;
     if (this.dir === 'LEFT') aSnake[0].x -= this.game.box;
     if (this.dir === 'UP') aSnake[0].y -= this.game.box;
     if (this.dir === 'RIGHT') aSnake[0].x += this.game.box;
     if (this.dir === 'DOWN') aSnake[0].y += this.game.box;
 
+    //---Create snake object, which is in our case rectangle with size of box in game.js
     for (let i = 0; i < aSnake.length; i++) {
       this.game.ctx.fillStyle = i === 0 ? this.fillColor : 'lightGreen';
       this.game.ctx.fillRect(
@@ -75,10 +75,12 @@ class Snake {
     let snakeW = aSnake[0].w;
     let snakeH = aSnake[0].h;
 
-    //this is the head of snake which is 0 index first elem.
+    //this is copy of snakes head which is 0 index first elem.
+    //In every frame we pop last elem and push back to first elem,to make the move(or motion).
     let newHead = { x: snakeX, y: snakeY, w: snakeW, h: snakeH };
 
-    //This is collision statement
+    //-------This is collision statement-------------------------
+    //There's 5-cases. Collision with the boarders and with snake itself.
     if (
       snakeX < this.game.box ||
       snakeX > 18 * this.game.box ||
@@ -86,9 +88,9 @@ class Snake {
       snakeY > 19 * this.game.box ||
       this.collision(newHead, aSnake)
     ) {
-      //I don't want the move button playing sound after game over.
+      //I don't want the press-keyboard playing sound after game over.
       //That's why I wrap it inside if only game state is true - play
-      //also set back the state to false after collision.
+      //and set back the state to false after collision,to stop the keyboard sound.
       if (this.state) {
         this.sound.dead.play();
         this.state = false;
@@ -98,7 +100,7 @@ class Snake {
       return;
     }
 
-    //if snake it's the food
+    //-------detect collision snake with food-----------------
     if (snakeX === this.game.food.x && snakeY === this.game.food.y) {
       this.game.score++;
       this.length++;
@@ -113,11 +115,11 @@ class Snake {
     } else {
       //remove the tail every other case
       this.snakeRoute.pop();
-      console.log('Output: this.snakeRoute', this.snakeRoute);
     }
-
+    // after removing the tail push(unshift) back to the head.
     this.snakeRoute.unshift(newHead);
   }
+  // //-------------collision() - snake collision with itself--------------------
   // check for collision. This collision is not with border
   // this is if snake hits itself ===>
   collision(head, arr) {

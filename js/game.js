@@ -17,27 +17,24 @@ class Game {
     this.score = 0;
     this.timeSpeed = 150;
     this.interID = undefined;
-    this.accumulatedTime = 0;
-    this.timeStep = 250;
   }
+  // -------------------------startTheGame()-------------------------
   startTheGame() {
-    if (this.snake.state) {
-      this.interID = setInterval(() => {
-        this.clear();
-        this.drawGround();
-        this.food.getImg();
-        this.snake.drawSnake();
-        this.snake.move();
-      }, this.timeSpeed);
-    }
+    this.interID = setInterval(() => {
+      this.clear();
+      this.drawGround();
+      this.food.getImg();
+      this.snake.drawSnake();
+      this.snake.move();
+    }, this.timeSpeed);
   }
-
+  // //------------------------- drawGround()-------------------------
   drawGround() {
-    //1. One way to use image.
+    // //----1. One way to use image.---- // //
     // this.groundImg.src = './img/ground.png';
     // this.ctx.drawImage(this.groundImg, 0, 0, this.width, this.height);
 
-    //2.Another way to draw background boxes instead.
+    // //----2.Another way to draw ----- // //
     for (let x = 1; x < 19; x++) {
       for (let y = 2; y < 20; y++) {
         // // all blue boxes.
@@ -56,29 +53,30 @@ class Game {
         this.ctx.strokeRect(x * this.box, y * this.box, this.box, this.box);
       }
     }
-    //Display score
+    //-----------Display score and length------------
     this.ctx.fillStyle = 'white';
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 100, 50);
     this.ctx.fillText(`Length: ${this.snake.length}`, 400, 50);
   }
+  // //-------------------------clear()----------------------------------- // //
   clear() {
     this.ctx.clearRect(0, 0, this.width, this.height);
   }
+  // //-------------------------gameOver()---------------------------------// //
   gameOver() {
     this.clear();
-    // //1.Display image.
+    // //--------1.Display image-------------------------
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
+    this.ctx.fillStyle = 'white';
+    this.ctx.font = '35px Arial';
+    this.ctx.fillText(`Score: ${this.score}`, 220, 50);
     document.getElementById('restart-button').classList.remove('display-none');
     document.getElementById('exit-button').classList.remove('display-none');
-    // //2.Draw 'Game Over' text.
+    // //--------2.Draw 'Game Over' text------------------
     // this.ctx.fillStyle = 'red';
     // this.ctx.textAlign = 'center';
     // this.ctx.font = '75px Arial';
     // this.ctx.fillText('Game Over', this.width / 2, this.height / 2);
   }
 }
-
-//1.Create main Game class
-//2.Create properties for begin
-//3.Create the methods: like start the Game, background and so on...
