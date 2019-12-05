@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
   const exit = document.getElementById('exit-button');
   newGame.canvas.classList.add('display-none');
   // restart.classList.add('display-none');
-  exit.classList.add('display-none');
+  // exit.classList.add('display-none');
   // // all click event buttons.
   document.onclick = event => {
     let btnID = event.target.id;
