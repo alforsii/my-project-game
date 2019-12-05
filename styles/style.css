@@ -1,3 +1,7 @@
+body {
+  background: lightblue;
+}
+/* canvas */
 canvas {
   display: block;
   margin: 0 auto;
@@ -10,9 +14,7 @@ canvas {
   justify-content: center;
   align-items: center;
 }
-body {
-  background: lightblue;
-}
+/* buttons */
 #start-button {
   font-family: 'Courier New', Courier, monospace;
   font-size: 10vw;
@@ -23,7 +25,20 @@ body {
   position: relative;
   top: 50%;
   left: 40%;
+  animation-name: start-button;
+  animation-duration: 13s;
+  animation-fill-mode: forwards;
 }
+
+@keyframes start-button {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #start-button:hover {
   color: rgb(11, 155, 11);
   cursor: pointer;
@@ -60,9 +75,26 @@ body {
 #exit-button:hover {
   color: red;
 }
-img {
+/* font image */
+body img {
   position: absolute;
+
+  animation-name: snake-font;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
 }
+
+@keyframes snake-font {
+  0% {
+    left: -1500px;
+    opacity: 0;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+
 .display-none {
   display: none;
 }
