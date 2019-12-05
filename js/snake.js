@@ -110,7 +110,12 @@ class Snake {
       this.game.food.randomizeImg();
       this.game.food.x = Math.floor(Math.random() * 17 + 1) * this.game.box;
       this.game.food.y = Math.floor(Math.random() * 15 + 2) * this.game.box;
-
+      let bgColor = '#fff';
+      if (this.game.scoreColor === '#ff0') bgColor = '#f00';
+      if (this.game.scoreColor === '#f00') bgColor = '#ff0';
+      if (this.game.scoreColor === '#0ff') bgColor = '#00f';
+      if (this.game.scoreColor == '#00f') bgColor = '#f00';
+      document.body.style.background = bgColor;
       //if eats food we don't remove the tail, instead we want to extend
     } else {
       //remove the tail every other case
