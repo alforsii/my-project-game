@@ -19,6 +19,7 @@ class Game {
     this.interID = undefined;
     this.restartBtn = undefined;
     this.exitBtn = undefined;
+    this.scoreColor = undefined;
   }
   // -------------------------startTheGame()-------------------------
   startTheGame() {
@@ -28,6 +29,7 @@ class Game {
       this.food.getImg();
       this.snake.drawSnake();
       this.snake.move();
+      this.scoreColors();
     }, this.timeSpeed);
   }
   // //------------------------- drawGround()-------------------------
@@ -56,7 +58,7 @@ class Game {
       }
     }
     //-----------Display score and length------------
-    this.ctx.fillStyle = 'white';
+    this.ctx.fillStyle = this.scoreColor;
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 100, 50);
     this.ctx.fillText(`Length: ${this.snake.length}`, 400, 50);
@@ -70,11 +72,11 @@ class Game {
     this.clear();
     // //--------1.Display image-------------------------
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
-
-    this.ctx.fillStyle = 'white';
+    //draw score
+    this.ctx.fillStyle = this.scoreColor;
     this.ctx.font = '35px Arial';
-    this.ctx.fillText(`Score: ${this.score}`, 220, 50);
-
+    this.ctx.fillText(`Score: ${this.score}`, 230, 50);
+    //create restart and exit buttons
     let canvasButtons = document.getElementById('canvas-buttons');
     this.restartBtn = document.createElement('button');
     this.exitBtn = document.createElement('button');
@@ -84,12 +86,36 @@ class Game {
     this.exitBtn.setAttribute('id', 'exit-button');
     this.restartBtn.innerHTML = 'Restart';
     this.exitBtn.innerHTML = 'Exit';
-    // document.getElementById('restart-button').classList.remove('display-none');
-    // document.getElementById('exit-button').classList.remove('display-none');
     // //--------2.Draw 'Game Over' text------------------
     // this.ctx.fillStyle = 'red';
     // this.ctx.textAlign = 'center';
     // this.ctx.font = '75px Arial';
     // this.ctx.fillText('Game Over', this.width / 2, this.height / 2);
+  }
+  //switch colors depending on player score.
+  scoreColors() {
+    switch (this.score) {
+      case 0:
+        this.scoreColor = '#f00'; //red
+        break;
+      case 1:
+      case 2:
+      case 3:
+        this.scoreColor = '#ff0'; //yellow
+        break;
+      default:
+        this.scoreColor = '#0ff'; //blue
+        break;
+    }
+    if (this.score % 10 === 0 && this.score > 0) {
+      this.scoreColor = '#00f';
+      this.ctx.fillStyle = '#f00';
+      this.ctx.font = '35px Arial';
+      this.ctx.fillText(
+        `Very good, you got ${this.score} scores`,
+        this.width / 2 - 200,
+        this.height / 2
+      );
+    }
   }
 }

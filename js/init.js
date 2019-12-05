@@ -3,11 +3,8 @@ window.addEventListener('load', () => {
   const newGame = new Game();
   const fontImg = document.querySelector('body img');
   const start = document.getElementById('start-button');
-  // const restart = document.getElementById('restart-button');
-  const exit = document.getElementById('exit-button');
   newGame.canvas.classList.add('display-none');
-  // restart.classList.add('display-none');
-  // exit.classList.add('display-none');
+
   // // all click event buttons.
   document.onclick = event => {
     let btnID = event.target.id;
@@ -23,9 +20,7 @@ window.addEventListener('load', () => {
       //Reset game
       case 'restart-button':
         newGame.clear();
-        // restart.classList.add('display-none');
         newGame.restartBtn.setAttribute('class', 'display-none');
-        // exit.classList.add('display-none');
         newGame.exitBtn.setAttribute('class', 'display-none');
         newGame.drawGround();
         newGame.food.randomizeImg();
@@ -50,7 +45,6 @@ window.addEventListener('load', () => {
       //Exit game
       case 'exit-button':
         location.reload();
-        // newGame.exitBtn.setAttribute('class', 'display-none');
         break;
     }
   };

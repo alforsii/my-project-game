@@ -53,7 +53,7 @@ class Snake {
 
     //---Create snake object, which is in our case rectangle with size of box in game.js
     for (let i = 0; i < aSnake.length; i++) {
-      this.game.ctx.fillStyle = i === 0 ? this.fillColor : 'lightGreen';
+      this.game.ctx.fillStyle = i === 0 ? this.game.scoreColor : 'lightGreen';
       this.game.ctx.fillRect(
         aSnake[i].x,
         aSnake[i].y,
