@@ -3,10 +3,10 @@ window.addEventListener('load', () => {
   const newGame = new Game();
   const fontImg = document.querySelector('body img');
   const start = document.getElementById('start-button');
-  const restart = document.getElementById('restart-button');
+  // const restart = document.getElementById('restart-button');
   const exit = document.getElementById('exit-button');
   newGame.canvas.classList.add('display-none');
-  restart.classList.add('display-none');
+  // restart.classList.add('display-none');
   exit.classList.add('display-none');
   // // all click event buttons.
   document.onclick = event => {
@@ -23,8 +23,10 @@ window.addEventListener('load', () => {
       //Reset game
       case 'restart-button':
         newGame.clear();
-        restart.classList.add('display-none');
-        exit.classList.add('display-none');
+        // restart.classList.add('display-none');
+        newGame.restartBtn.setAttribute('class', 'display-none');
+        // exit.classList.add('display-none');
+        newGame.exitBtn.setAttribute('class', 'display-none');
         newGame.drawGround();
         newGame.food.randomizeImg();
         newGame.food.getImg();
@@ -48,16 +50,8 @@ window.addEventListener('load', () => {
       //Exit game
       case 'exit-button':
         location.reload();
-        exit.classList.add('display-none');
+        // newGame.exitBtn.setAttribute('class', 'display-none');
         break;
     }
   };
-  // function animate(timeStamp) {
-  //   if (timeStamp >= this.newGame.accumulatedTime + this.newGame.timeStep) {
-  //     this.newGame.accumulatedTime = timeStamp;
-  //     newGame.startTheGame();
-  //   }
-  //   window.requestAnimationFrame(animate);
-  // }
-  // window.requestAnimationFrame(animate);
 });

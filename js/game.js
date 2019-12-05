@@ -17,6 +17,8 @@ class Game {
     this.score = 0;
     this.timeSpeed = 150;
     this.interID = undefined;
+    this.restartBtn = undefined;
+    this.exitBtn = undefined;
   }
   // -------------------------startTheGame()-------------------------
   startTheGame() {
@@ -68,11 +70,22 @@ class Game {
     this.clear();
     // //--------1.Display image-------------------------
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
+
     this.ctx.fillStyle = 'white';
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 220, 50);
-    document.getElementById('restart-button').classList.remove('display-none');
-    document.getElementById('exit-button').classList.remove('display-none');
+
+    let canvasButtons = document.getElementById('canvas-buttons');
+    this.restartBtn = document.createElement('button');
+    this.exitBtn = document.createElement('button');
+    canvasButtons.appendChild(this.restartBtn);
+    canvasButtons.appendChild(this.exitBtn);
+    this.restartBtn.setAttribute('id', 'restart-button');
+    this.exitBtn.setAttribute('id', 'exit-button');
+    this.restartBtn.innerHTML = 'Restart';
+    this.exitBtn.innerHTML = 'Exit';
+    // document.getElementById('restart-button').classList.remove('display-none');
+    // document.getElementById('exit-button').classList.remove('display-none');
     // //--------2.Draw 'Game Over' text------------------
     // this.ctx.fillStyle = 'red';
     // this.ctx.textAlign = 'center';
