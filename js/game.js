@@ -34,9 +34,9 @@ class Game {
   }
   // //------------------------- drawGround()-------------------------
   drawGround() {
-    // //----1. One way to use image.---- // //
+    // //----1. One way to use image. But need to adjust---- // //
     // this.groundImg.src = './img/ground.png';
-    // this.ctx.drawImage(this.groundImg, 0, 0, this.width, this.height);
+    // this.ctx.drawImage(this.groundImg, 0, 0, this.width , this.height);
 
     // //----2.Another way to draw ----- // //
     for (let x = 1; x < 19; x++) {
@@ -52,7 +52,7 @@ class Game {
           this.ctx.fillStyle = 'rgb(4, 160, 218)';
           this.ctx.fillRect(x * this.box, y * this.box, this.box, this.box);
         }
-        // this is empty boxes with stroke.
+        //3) all boxes borders with stroke.
         this.ctx.strokeStyle = 'rgb(11, 186, 250)';
         this.ctx.strokeRect(x * this.box, y * this.box, this.box, this.box);
       }
@@ -70,13 +70,13 @@ class Game {
   // //-------------------------gameOver()---------------------------------// //
   gameOver() {
     this.clear();
-    // //--------1.Display image-------------------------
+    // //--------1.Display game over image-------------------------
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
-    //draw score
-    this.ctx.fillStyle = this.scoreColor = 'black' ? 'white' : this.scoreColor;
+    //draw score and score color
+    this.ctx.fillStyle = this.scoreColor;
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 230, 50);
-    //create restart and exit buttons
+    //create restart and exit buttons every time when game is over
     let canvasButtons = document.getElementById('canvas-buttons');
     this.restartBtn = document.createElement('button');
     this.exitBtn = document.createElement('button');
@@ -95,11 +95,11 @@ class Game {
   //switch colors depending on player score.
   scoreColors() {
     if (this.score === 0) this.scoreColor = '#f00'; //red
-    if (this.score > 0 && this.score < 10) this.scoreColor = '#fff'; //white
+    if (this.score > 0) this.scoreColor = '#fff'; //white
     if (this.score > 10) this.scoreColor = '#ff0'; //yellow
-    if (this.score > 20) this.scoreColor = 'green'; //green
-    if (this.score > 30) this.scoreColor = '#000'; //black
-    if (this.score > 40) this.scoreColor = '#0f0'; //
+    if (this.score > 20) this.scoreColor = 'orange'; //
+    if (this.score > 30) this.scoreColor = '#f00'; //red
+    if (this.score > 40) this.scoreColor = '#green'; //green
 
     if (this.score % 10 === 0 && this.score > 0) {
       this.scoreColor = '#fff';

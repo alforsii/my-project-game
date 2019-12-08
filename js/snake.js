@@ -12,7 +12,6 @@ class Snake {
       },
     ];
     this.state = false;
-    this.fillColor = 'orange';
     this.strokeColor = 'black';
     this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse while in motion.
   }
@@ -78,7 +77,6 @@ class Snake {
     //this is copy of snakes head which is 0 index first elem.
     //In every frame we pop last elem and push back to first elem,to make the move(or motion).
     let newHead = { x: snakeX, y: snakeY, w: snakeW, h: snakeH };
-
     //-------This is collision statement-------------------------
     //There's 5-cases. Collision with the boarders and with snake itself.
     if (
@@ -97,10 +95,9 @@ class Snake {
       }
       clearInterval(this.game.interID);
       this.game.gameOver();
-      return;
+      return; //also we want to stop(return) this function when collision, else will pop tail and unshift extra same head to our snake, which may cause some problem.
     }
-
-    //-------detect collision snake with food-----------------
+    //-------detect  snake collision with food-----------------
     if (snakeX === this.game.food.x && snakeY === this.game.food.y) {
       this.game.score++;
       this.length++;
@@ -113,11 +110,11 @@ class Snake {
       this.game.food.y = Math.floor(Math.random() * 15 + 2) * this.game.box;
       //switch background color when score meets condition.
       let bgColor;
-      if (this.game.score < 10) bgColor = '#000';
-      if (this.game.score > 10) bgColor = '#f00';
-      if (this.game.score > 20) bgColor = '#00f';
-      if (this.game.score > 30) bgColor = '#0f0';
-      if (this.game.score > 40) bgColor = '#0ff';
+      if (this.game.score < 10) bgColor = '#000'; //black
+      if (this.game.score > 10) bgColor = '#f00'; //red
+      if (this.game.score > 20) bgColor = '#00f'; // blue
+      if (this.game.score > 30) bgColor = '#0f0'; //lightGreen
+      if (this.game.score > 40) bgColor = '#0ff'; //lightBlue
       document.body.style.background = bgColor;
       //if eats food we don't remove the tail, instead we want to extend
     } else {
