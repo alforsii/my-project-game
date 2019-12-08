@@ -73,7 +73,7 @@ class Game {
     // //--------1.Display image-------------------------
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
     //draw score
-    this.ctx.fillStyle = this.scoreColor;
+    this.ctx.fillStyle = this.scoreColor = 'black' ? 'white' : this.scoreColor;
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 230, 50);
     //create restart and exit buttons
@@ -106,7 +106,7 @@ class Game {
       this.ctx.fillStyle = this.scoreColor;
       this.ctx.font = '35px Arial';
       this.ctx.fillText(
-        `Congrats, you got ${this.score} points`,
+        `Congrats, you earned ${this.score} points`,
         this.width / 2 - 220,
         this.height / 2
       );

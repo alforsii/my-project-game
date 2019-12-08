@@ -106,19 +106,12 @@ class Snake {
       this.length++;
       this.sound.eat.play();
 
-      this.game.ctx.fillStyle = this.fillColor;
-      this.game.ctx.font = '25 Arial';
-      this.game.ctx.fillText(
-        this.game.food.imgSrc[this.game.food.index],
-        150,
-        150
-      );
-
       // console.log('Output: this.game.food', this.game.food);
       // console.log('Output: this.snakeRoute', this.snakeRoute);
       this.game.food.randomizeImg();
       this.game.food.x = Math.floor(Math.random() * 17 + 1) * this.game.box;
       this.game.food.y = Math.floor(Math.random() * 15 + 2) * this.game.box;
+      //switch background color when score meets condition.
       let bgColor;
       if (this.game.score < 10) bgColor = '#000';
       if (this.game.score > 10) bgColor = '#f00';
