@@ -2,7 +2,7 @@ class Snake {
   constructor(game) {
     this.game = game;
     this.sound = new Sound();
-    this.length = 1;
+    this.length = 1; //this is for display, starts with 1 as it is.
     this.snakeRoute = [
       {
         x: 270,
@@ -105,16 +105,26 @@ class Snake {
       this.game.score++;
       this.length++;
       this.sound.eat.play();
+
+      this.game.ctx.fillStyle = this.fillColor;
+      this.game.ctx.font = '25 Arial';
+      this.game.ctx.fillText(
+        this.game.food.imgSrc[this.game.food.index],
+        150,
+        150
+      );
+
       // console.log('Output: this.game.food', this.game.food);
       // console.log('Output: this.snakeRoute', this.snakeRoute);
       this.game.food.randomizeImg();
       this.game.food.x = Math.floor(Math.random() * 17 + 1) * this.game.box;
       this.game.food.y = Math.floor(Math.random() * 15 + 2) * this.game.box;
-      let bgColor = '#fff';
-      if (this.game.scoreColor === '#ff0') bgColor = '#f00';
-      if (this.game.scoreColor === '#f00') bgColor = '#ff0';
-      if (this.game.scoreColor === '#0ff') bgColor = '#00f';
-      if (this.game.scoreColor == '#00f') bgColor = '#f00';
+      let bgColor;
+      if (this.game.score < 10) bgColor = '#000';
+      if (this.game.score > 10) bgColor = '#f00';
+      if (this.game.score > 20) bgColor = '#00f';
+      if (this.game.score > 30) bgColor = '#0f0';
+      if (this.game.score > 40) bgColor = '#0ff';
       document.body.style.background = bgColor;
       //if eats food we don't remove the tail, instead we want to extend
     } else {

@@ -94,26 +94,20 @@ class Game {
   }
   //switch colors depending on player score.
   scoreColors() {
-    switch (this.score) {
-      case 0:
-        this.scoreColor = '#f00'; //red
-        break;
-      case 1:
-      case 2:
-      case 3:
-        this.scoreColor = '#ff0'; //yellow
-        break;
-      default:
-        this.scoreColor = '#0ff'; //blue
-        break;
-    }
+    if (this.score === 0) this.scoreColor = '#f00'; //red
+    if (this.score > 0 && this.score < 10) this.scoreColor = '#fff'; //white
+    if (this.score > 10) this.scoreColor = '#ff0'; //yellow
+    if (this.score > 20) this.scoreColor = 'green'; //green
+    if (this.score > 30) this.scoreColor = '#000'; //black
+    if (this.score > 40) this.scoreColor = '#0f0'; //
+
     if (this.score % 10 === 0 && this.score > 0) {
-      this.scoreColor = '#00f';
-      this.ctx.fillStyle = '#f00';
+      this.scoreColor = '#fff';
+      this.ctx.fillStyle = this.scoreColor;
       this.ctx.font = '35px Arial';
       this.ctx.fillText(
-        `Very good, you got ${this.score} scores`,
-        this.width / 2 - 200,
+        `Congrats, you got ${this.score} points`,
+        this.width / 2 - 220,
         this.height / 2
       );
     }
