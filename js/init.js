@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
         newGame.restartBtn.setAttribute('class', 'display-none');
         newGame.exitBtn.setAttribute('class', 'display-none');
         newGame.drawGround();
-        newGame.scoreColors();
+        document.body.style.background = 'lightBlue';
         newGame.food.randomizeImg();
         newGame.food.getImg();
         newGame.snake.dir = undefined;
