@@ -12,7 +12,6 @@ class Snake {
       },
     ];
     this.state = false;
-    this.strokeColor = 'black';
     this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse while in motion.
   }
   // //-------------------------move()----------------------------------------
@@ -60,7 +59,7 @@ class Snake {
         aSnake[i].h
       );
 
-      this.game.ctx.strokeStyle = this.strokeColor;
+      this.game.ctx.strokeStyle = 'black';
       this.game.ctx.strokeRect(
         aSnake[i].x,
         aSnake[i].y,

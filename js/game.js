@@ -11,11 +11,9 @@ class Game {
     };
     this.snake = new Snake(this);
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
-    this.groundImg = new Image();
     this.gameOverImg = new Image();
     this.gameOverImg.src = './img/game-over-2.png';
     this.score = 0;
-    this.timeSpeed = 150;
     this.interID = undefined;
     this.restartBtn = undefined;
     this.exitBtn = undefined;
@@ -30,15 +28,11 @@ class Game {
       this.snake.drawSnake();
       this.snake.move();
       this.scoreColors();
-    }, this.timeSpeed);
+    }, 150);
   }
   // //------------------------- drawGround()-------------------------
   drawGround() {
-    // //----1. One way to use image. But need to adjust---- // //
-    // this.groundImg.src = './img/ground.png';
-    // this.ctx.drawImage(this.groundImg, 0, 0, this.width , this.height);
-
-    // //----2.Another way to draw ----- // //
+    // //----Draw background----- // //
     for (let x = 1; x < 19; x++) {
       for (let y = 2; y < 20; y++) {
         // // all blue boxes.
@@ -53,7 +47,7 @@ class Game {
           this.ctx.fillRect(x * this.box, y * this.box, this.box, this.box);
         }
         //3) all boxes borders with stroke.
-        this.ctx.strokeStyle = 'rgb(11, 186, 250)';
+        this.ctx.strokeStyle = 'rgb(4, 160, 218)';
         this.ctx.strokeRect(x * this.box, y * this.box, this.box, this.box);
       }
     }
@@ -70,13 +64,13 @@ class Game {
   // //-------------------------gameOver()---------------------------------// //
   gameOver() {
     this.clear();
-    // //--------1.Display game over image-------------------------
+    // //--------Display game over image-------------------------
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
     //draw score and score color
     this.ctx.fillStyle = this.scoreColor;
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 230, 50);
-    //create restart and exit buttons every time when game is over
+    //create restart and exit buttons
     let canvasButtons = document.getElementById('canvas-buttons');
     this.restartBtn = document.createElement('button');
     this.exitBtn = document.createElement('button');
@@ -86,11 +80,6 @@ class Game {
     this.exitBtn.setAttribute('id', 'exit-button');
     this.restartBtn.innerHTML = 'Restart';
     this.exitBtn.innerHTML = 'Exit';
-    // //--------2.Draw 'Game Over' text------------------
-    // this.ctx.fillStyle = 'red';
-    // this.ctx.textAlign = 'center';
-    // this.ctx.font = '75px Arial';
-    // this.ctx.fillText('Game Over', this.width / 2, this.height / 2);
   }
   //switch colors depending on player score.
   scoreColors() {
