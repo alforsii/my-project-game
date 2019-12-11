@@ -28,7 +28,7 @@ class Game {
       this.snake.drawSnake();
       this.snake.move();
       this.scoreColors();
-    }, 150);
+    }, 120);
   }
   // //------------------------- drawGround()-------------------------
   drawGround() {

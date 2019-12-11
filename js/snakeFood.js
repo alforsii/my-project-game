@@ -19,10 +19,9 @@ class Food {
     this.index = Math.floor(Math.random() * this.imgSrc.length);
   }
   getImg() {
-    let foodCTX = this.game.ctx;
     this.img.src = this.imgSrc[this.index].src;
     // this.img.onload = () => {
-    foodCTX.drawImage(this.img, this.x, this.y, this.width, this.height);
+    this.game.ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
     // };
   }
 }
