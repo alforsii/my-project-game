@@ -29,15 +29,19 @@ This game is made in `canvas` .
 
 - Create snake array where we'll be storing our snake body.
 - Define first element for snake array(body).
-- Using for loop draw first element in the array.
-- Define snake direction = undefined for now Once we have our snake, we need the
-  player.
+- Using for loop draw first element in the canvas.
+- Define snake direction = undefined for now. This direction we will use in this
+  Snake class to define which way our snake should go Once we have our snake, we
+  will make Player where Player will extend Snake to have a full control of the
+  snake. In the Player class we'll just need to add remote control and set
+  direction of the snake if certain key pressed.
 
 ## 3. Third Iteration: Make Player class move the snake right, left, up and down
 
 - class Player extends Snake. Now we have access to our Snake class to
   manipulate.
-- Using eventListener make the snake move.
+- Using eventListener set the snake direction to left,up,right or down(Key arrow
+  codes 37,38,39,40).
 - Also we have to make sure that our snake cannot go left if it's direction
   right,and other way back . Also it cannot go up if it's direction down(heading
   down) to avoid our snake going backwards. Because the snake goes only forward.
