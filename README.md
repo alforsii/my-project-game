@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This games is made in `canvas` .
+This game is made in `canvas` .
 
 ## 1. First iteration: Create class Game and Draw background
 
