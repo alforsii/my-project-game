@@ -77,7 +77,7 @@ class Snake {
       // console.log('Output: this.game.food', this.game.food);
       // console.log('Output: this.snakeRoute', this.snakeRoute);
       this.game.food.randomizeImg();
-      this.game.food.x = Math.floor(Math.random() * 17 + 1) * this.game.box;
+      this.game.food.x = Math.floor(Math.random() * 27 + 1) * this.game.box;
       this.game.food.y = Math.floor(Math.random() * 15 + 2) * this.game.box;
       //switch background color when score meets condition.
       let bgColor;

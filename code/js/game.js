@@ -7,7 +7,7 @@ class Game {
     this.box = 30;
     this.pos = {
       //this is random food position
-      x: Math.floor(Math.random() * 17 + 1) * this.box,
+      x: Math.floor(Math.random() * 27 + 1) * this.box,
       y: Math.floor(Math.random() * 15 + 3) * this.box,
     };
     this.playersPosition = {
@@ -33,7 +33,6 @@ class Game {
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
     this.gameOverImg = new Image();
     this.gameOverImg.src = './code/img/game-over-2.png';
-
     this.interID = undefined;
     this.restartBtn = undefined;
     this.exitBtn = undefined;
@@ -41,14 +40,15 @@ class Game {
   }
   // -------------------------startTheGame()-------------------------
   startTheGame() {
+    //update every frame(120ms)
     this.interID = setInterval(() => {
       this.clear();
       this.drawGround();
       this.food.getImg();
       this.player1.drawSnake();
       this.player2.drawSnake();
-      this.player1.movePlayer1();
-      this.player2.movePlayer2();
+      this.player1.remote1();
+      this.player2.remote2();
       // this.scoreColors();
       this.playersCollision();
     }, 120);

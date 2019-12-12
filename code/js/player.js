@@ -3,7 +3,7 @@ class Player extends Snake {
     super(game, pos, color);
   }
   //-----------player 1-----------------
-  movePlayer1() {
+  remote1() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
       event.preventDefault();
@@ -30,7 +30,7 @@ class Player extends Snake {
   }
 
   //-----------player 2-----------------
-  movePlayer2() {
+  remote2() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
       event.preventDefault();
