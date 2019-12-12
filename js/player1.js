@@ -4,7 +4,6 @@ class Snake {
     this.sound = new Sound();
     this.length = 1; //this is for display, starts with 1 as it is.
     this.snakeRoute = pos;
-    console.log('Output for: Snake -> constructor -> pos', pos);
     this.state = false;
     this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse while in motion.
   }
@@ -12,7 +11,6 @@ class Snake {
   move() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
-      console.log('Output for: Snake -> move -> key', key);
       event.preventDefault();
       if (this.state) {
         if (key === 37 && this.dir !== 'RIGHT') {
@@ -38,7 +36,6 @@ class Snake {
   move2() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
-      console.log('Output for: Snake -> event.keyCode', event.keyCode);
       event.preventDefault();
       if (this.state) {
         if (key === 65 && this.dir !== 'RIGHT') {

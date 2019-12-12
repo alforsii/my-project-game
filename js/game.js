@@ -77,7 +77,7 @@ class Game {
     this.ctx.fillStyle = this.scoreColor;
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 100, 50);
-    this.ctx.fillText(`Length: ${this.player1.length}`, 400, 50);
+    // this.ctx.fillText(`Length: ${this.player1.length}`, 400, 50);
   }
   // //-------------------------clear()----------------------------------- // //
   clear() {

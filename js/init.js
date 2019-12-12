@@ -13,6 +13,7 @@ window.addEventListener('load', () => {
       // Start game
       case 'start-button':
         newGame.player1.state = true;
+        newGame.player2.state = true;
         fontImg.classList.add('display-none');
         start.classList.add('display-none');
         newGame.canvas.classList.remove('display-none');
