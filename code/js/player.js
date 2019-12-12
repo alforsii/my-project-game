@@ -1,6 +1,7 @@
 class Player extends Snake {
   constructor(game, pos, color) {
     super(game, pos, color);
+    this.score = 0;
   }
   //-----------player 1-----------------
   remote1() {

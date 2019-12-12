@@ -32,7 +32,7 @@ class Game {
     this.player2 = new Player(this, this.playersPositions.player2Pos, 'blue');
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
     this.gameOverImg = new Image();
-    this.gameOverImg.src = './code/img/game-over-2.png';
+    this.gameOverImg.src = './img/game-over-2.png';
     this.interID = undefined;
     this.canvasButtons = undefined;
     this.restartBtn = undefined;

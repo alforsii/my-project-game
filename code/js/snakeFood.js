@@ -7,11 +7,11 @@ class Food {
     this.height = h;
     this.img = new Image();
     this.imgSrc = [
-      { name: 'apple', src: './code/img/apple-forSnake3.png' },
-      { name: 'strawberry', src: './code/img/strawberry.png' },
-      { name: 'kiwi', src: './code/img/kiwi.ico' },
-      { name: 'cherries', src: './code/img/cherries.png' },
-      { name: 'bonus', src: './code/img/bonus-allFruits.gif' },
+      { name: 'apple', src: './img/apple-forSnake3.png' },
+      { name: 'strawberry', src: './img/strawberry.png' },
+      { name: 'kiwi', src: './img/kiwi.ico' },
+      { name: 'cherries', src: './img/cherries.png' },
+      { name: 'bonus', src: './img/bonus-allFruits.gif' },
     ];
     this.index = Math.floor(Math.random() * this.imgSrc.length);
   }

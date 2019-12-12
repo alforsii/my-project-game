@@ -2,7 +2,6 @@ class Snake {
   constructor(game, pos, color) {
     this.game = game;
     this.sound = new Sound();
-    this.score = 0;
     this.snakeRoute = pos;
     this.color = color;
     this.state = false;
