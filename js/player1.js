@@ -10,6 +10,7 @@ class Snake {
     this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse while in motion.
   }
   // //-------------------------move()----------------------------------------
+  //player 1
   movePlayer1() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
@@ -35,6 +36,7 @@ class Snake {
       }
     });
   }
+  //player 2
   movePlayer2() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
