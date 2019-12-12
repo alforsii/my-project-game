@@ -48,11 +48,11 @@ class Snake {
           //we go up if we're not going down
           this.dir = 'UP';
           this.sound.moveSound.play();
-        } else if (key === 83 && this.dir !== 'LEFT') {
+        } else if (key === 68 && this.dir !== 'LEFT') {
           //we go right only if we're not going left
           this.dir = 'RIGHT';
           this.sound.moveSound.play();
-        } else if (key === 90 && this.dir !== 'UP') {
+        } else if (key === 88 && this.dir !== 'UP') {
           //and we go down if we're not going up.
           this.dir = 'DOWN';
           this.sound.moveSound.play();
@@ -114,6 +114,9 @@ class Snake {
       }
       clearInterval(this.game.interID);
       this.game.gameOver();
+      if (this.game.player1.collision || this.game.player2.collision) {
+        this.sound.dead.play();
+      }
       return; //also we want to stop(return) this function when collision, else will pop tail and unshift extra same head to our snake, which may cause some problem.
     }
     //-------detect  snake collision with food-----------------

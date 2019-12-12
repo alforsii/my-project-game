@@ -63,11 +63,11 @@ canvas {
 }
 #canvasButtons {
   display: flex;
-  width: 600px; /*canvas width*/
+  width: 1400px; /*canvas width*/
   justify-content: space-around;
   align-items: center;
   position: relative;
-  top: 130px;
+  top: 65px;
 }
 #restart-button:hover {
   color: #0f0;

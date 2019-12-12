@@ -13,7 +13,7 @@ class Game {
     this.playersPosition = {
       player1Pos: [
         {
-          x: 18 * this.box,
+          x: 19 * this.box,
           y: 10 * this.box,
           w: this.box,
           h: this.box,
@@ -49,7 +49,7 @@ class Game {
       this.player2.drawSnake();
       this.player1.movePlayer1();
       this.player2.movePlayer2();
-      this.scoreColors();
+      // this.scoreColors();
       this.playersCollision();
     }, 120);
   }
@@ -77,9 +77,9 @@ class Game {
     //-----------Display score and length------------
     this.ctx.fillStyle = this.player1.color;
     this.ctx.font = '35px Arial';
-    this.ctx.fillText(`Score: ${this.player1.score}`, 700, 50);
+    this.ctx.fillText(`Score: ${this.player1.score}`, 590, 50);
     this.ctx.fillStyle = this.player2.color;
-    this.ctx.fillText(`Score: ${this.player2.score}`, 100, 50);
+    this.ctx.fillText(`Score: ${this.player2.score}`, 140, 50);
     // this.ctx.fillText(`Length: ${this.player1.length}`, 400, 50);
   }
   // //-------------------------clear()----------------------------------- // //
@@ -92,11 +92,25 @@ class Game {
     // //--------Display game over image-------------------------
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
     //draw score and score color
-    this.ctx.fillStyle = this.player1.color;
     this.ctx.font = '35px Arial';
-    this.ctx.fillText(`Score: ${this.player1.score}`, 450, 50);
-    this.ctx.fillStyle = this.player2.color;
-    this.ctx.fillText(`Score: ${this.player2.score}`, 250, 50);
+    if (this.player1.score > this.player2.score) {
+      this.ctx.fillStyle = this.player1.color;
+      this.ctx.fillText(
+        `Player1 won with score:${this.player1.score}`,
+        250,
+        50
+      );
+    } else if (this.player1.score < this.player2.score) {
+      this.ctx.fillStyle = this.player2.color;
+      this.ctx.fillText(
+        `Player2 won with score: ${this.player2.score}`,
+        250,
+        50
+      );
+    } else {
+      this.ctx.fillStyle = 'white';
+      this.ctx.fillText(``, 230, 50);
+    }
     //create restart and exit buttons
     let canvasButtons = document.getElementById('canvasButtons');
     this.restartBtn = document.createElement('button');
@@ -105,7 +119,7 @@ class Game {
     canvasButtons.appendChild(this.exitBtn);
     this.restartBtn.setAttribute('id', 'restart-button');
     this.exitBtn.setAttribute('id', 'exit-button');
-    this.restartBtn.innerHTML = 'Restart';
+    this.restartBtn.innerHTML = 'Reset';
     this.exitBtn.innerHTML = 'Exit';
   }
 
@@ -115,13 +129,10 @@ class Game {
     let p2 = this.player2.snakeRoute;
     for (let i = 0; i < p1.length; i++) {
       for (let j = 0; j < p2.length; j++) {
-        // console.log('Output for: Game -> playersCollision -> p1', p1);
-        // console.log('Output for: Game -> playersCollision -> p2', p2);
-
         if (p1[i].x === p2[j].x && p1[i].y === p2[j].y) {
-          if (this.state) {
+          if (this.player1.state && this.player1.state) {
             this.player1.sound.dead.play();
-            this.player2.sound.dead.play();
+            // this.player2.sound.dead.play();
             this.player1.state = false;
             this.player2.state = false;
           }
