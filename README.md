@@ -50,8 +50,8 @@ This game is made in `canvas` .
 
 ## 4. Fourth Iteration: Create Food class
 
-- In this class we'll have width and height properties of the Food and random
-  position.
+- In this class we'll have width and height as a properties of the Food and
+  random x, y position.
 - Draw Food
 
 Our food also will have the same width and height as the snake to fit in the
@@ -70,7 +70,7 @@ boxes.
   when eats food to extend snakes length. After collision with food we start pop
   the tail of the snake and unshift to the front of the snake array.
 
-## 6. Sixth Iteration: Border collision and self
+## 6. Sixth Iteration: Self and border collision:
 
 - When collision: ![](./code/img/game-over-2.png)
 
@@ -81,7 +81,7 @@ boxes.
 
 To be able to use it in every file we can make separate Sound class for sounds.
 
-## 8. Eighth Iteration: Create button:
+## 8. Eighth Iteration: Create buttons:
 
 - Create start button
 - Create restart button
