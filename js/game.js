@@ -28,8 +28,8 @@ class Game {
         },
       ],
     };
-    this.player1 = new Snake(this, this.playersPosition.player1Pos, 'red');
-    this.player2 = new Snake(this, this.playersPosition.player2Pos, 'blue');
+    this.player1 = new Player(this, this.playersPosition.player1Pos, 'red');
+    this.player2 = new Player(this, this.playersPosition.player2Pos, 'blue');
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
     this.gameOverImg = new Image();
     this.gameOverImg.src = './img/game-over-2.png';
