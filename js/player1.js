@@ -1,14 +1,16 @@
 class Snake {
-  constructor(game, pos) {
+  constructor(game, pos, color) {
     this.game = game;
     this.sound = new Sound();
-    this.length = 1; //this is for display, starts with 1 as it is.
+    this.score = 0;
+    // this.length = 1; //this is for display, starts with 1 as it is.
     this.snakeRoute = pos;
+    this.color = color;
     this.state = false;
     this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse while in motion.
   }
   // //-------------------------move()----------------------------------------
-  move() {
+  movePlayer1() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
       event.preventDefault();
@@ -33,7 +35,7 @@ class Snake {
       }
     });
   }
-  move2() {
+  movePlayer2() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
       event.preventDefault();
@@ -69,7 +71,7 @@ class Snake {
 
     //---Create snake object, which is in our case rectangle with size of box in game.js
     for (let i = 0; i < aSnake.length; i++) {
-      this.game.ctx.fillStyle = i === 0 ? this.game.scoreColor : 'lightGreen';
+      this.game.ctx.fillStyle = i === 0 ? this.color : 'lightGreen';
       this.game.ctx.fillRect(
         aSnake[i].x,
         aSnake[i].y,
@@ -116,8 +118,8 @@ class Snake {
     }
     //-------detect  snake collision with food-----------------
     if (snakeX === this.game.food.x && snakeY === this.game.food.y) {
-      this.game.score++;
-      this.length++;
+      this.score++;
+      // this.length++;
       this.sound.eat.play();
 
       // console.log('Output: this.game.food', this.game.food);

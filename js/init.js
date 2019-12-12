@@ -30,7 +30,8 @@ window.addEventListener('load', () => {
         newGame.food.getImg();
         newGame.player1.dir = undefined;
         newGame.player2.dir = undefined;
-        newGame.score = 0;
+        newGame.player1.score = 0;
+        newGame.player2.score = 0;
         newGame.player1.length = 1;
         newGame.player2.length = 1;
         newGame.player1.state = true;
