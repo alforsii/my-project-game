@@ -23,7 +23,7 @@ canvas {
   color: #0f0;
   border: none;
   position: relative;
-  top: 50%;
+  top: 0;
   left: 40%;
   animation-name: start-button;
   animation-duration: 13s;
@@ -61,7 +61,7 @@ canvas {
   padding: 5px 20px;
   border: none;
 }
-#canvas-buttons {
+#canvasButtons {
   display: flex;
   width: 600px; /*canvas width*/
   justify-content: space-around;

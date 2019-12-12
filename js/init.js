@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
   const fontImg = document.querySelector('body img');
   const start = document.getElementById('start-button');
   newGame.canvas.classList.add('display-none');
+  canvasButtons.classList.add('display-none');
 
   // // all click event buttons.
   document.onclick = event => {
@@ -11,7 +12,7 @@ window.addEventListener('load', () => {
     switch (btnID) {
       // Start game
       case 'start-button':
-        newGame.snake.state = true;
+        newGame.player1.state = true;
         fontImg.classList.add('display-none');
         start.classList.add('display-none');
         newGame.canvas.classList.remove('display-none');
@@ -26,11 +27,11 @@ window.addEventListener('load', () => {
         document.body.style.background = 'lightBlue';
         newGame.food.randomizeImg();
         newGame.food.getImg();
-        newGame.snake.dir = undefined;
+        newGame.player1.dir = undefined;
         newGame.score = 0;
-        newGame.snake.length = 1;
-        newGame.snake.state = true;
-        newGame.snake.snakeRoute = [
+        newGame.player1.length = 1;
+        newGame.player1.state = true;
+        newGame.player1.snakeRoute = [
           {
             x: 9 * newGame.box,
             y: 10 * newGame.box,

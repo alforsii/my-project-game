@@ -6,10 +6,30 @@ class Game {
     this.height = this.canvas.height;
     this.box = 30;
     this.pos = {
+      //this is random food position
       x: Math.floor(Math.random() * 17 + 1) * this.box,
       y: Math.floor(Math.random() * 15 + 3) * this.box,
     };
-    this.snake = new Snake(this);
+    this.playersPosition = {
+      player1Pos: [
+        {
+          x: 9 * this.box,
+          y: 10 * this.box,
+          w: this.box,
+          h: this.box,
+        },
+      ],
+      player2Pos: [
+        {
+          x: 18 * this.box,
+          y: 10 * this.box,
+          w: this.box,
+          h: this.box,
+        },
+      ],
+    };
+    this.player1 = new Snake(this, this.playersPosition.player1Pos);
+    this.player2 = new Snake(this, this.playersPosition.player2Pos);
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
     this.gameOverImg = new Image();
     this.gameOverImg.src = './img/game-over-2.png';
@@ -25,15 +45,17 @@ class Game {
       this.clear();
       this.drawGround();
       this.food.getImg();
-      this.snake.drawSnake();
-      this.snake.move();
+      this.player1.drawSnake();
+      this.player2.drawSnake();
+      this.player1.move();
+      this.player2.move2();
       this.scoreColors();
     }, 120);
   }
   // //------------------------- drawGround()-------------------------
   drawGround() {
     // //----Draw background----- // //
-    for (let x = 1; x < 19; x++) {
+    for (let x = 1; x < 29; x++) {
       for (let y = 2; y < 20; y++) {
         // // all blue boxes.
         //1) all Even lines on X and Y fill with blue
@@ -55,7 +77,7 @@ class Game {
     this.ctx.fillStyle = this.scoreColor;
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 100, 50);
-    this.ctx.fillText(`Length: ${this.snake.length}`, 400, 50);
+    this.ctx.fillText(`Length: ${this.player1.length}`, 400, 50);
   }
   // //-------------------------clear()----------------------------------- // //
   clear() {
@@ -71,7 +93,7 @@ class Game {
     this.ctx.font = '35px Arial';
     this.ctx.fillText(`Score: ${this.score}`, 230, 50);
     //create restart and exit buttons
-    let canvasButtons = document.getElementById('canvas-buttons');
+    let canvasButtons = document.getElementById('canvasButtons');
     this.restartBtn = document.createElement('button');
     this.exitBtn = document.createElement('button');
     canvasButtons.appendChild(this.restartBtn);

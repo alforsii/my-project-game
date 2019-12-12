@@ -1,16 +1,10 @@
 class Snake {
-  constructor(game) {
+  constructor(game, pos) {
     this.game = game;
     this.sound = new Sound();
     this.length = 1; //this is for display, starts with 1 as it is.
-    this.snakeRoute = [
-      {
-        x: 270,
-        y: 300,
-        w: this.game.box,
-        h: this.game.box,
-      },
-    ];
+    this.snakeRoute = pos;
+    console.log('Output for: Snake -> constructor -> pos', pos);
     this.state = false;
     this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse while in motion.
   }
@@ -18,6 +12,7 @@ class Snake {
   move() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
+      console.log('Output for: Snake -> move -> key', key);
       event.preventDefault();
       if (this.state) {
         if (key === 37 && this.dir !== 'RIGHT') {
@@ -33,6 +28,32 @@ class Snake {
           this.dir = 'RIGHT';
           this.sound.moveSound.play();
         } else if (key === 40 && this.dir !== 'UP') {
+          //and we go down if we're not going up.
+          this.dir = 'DOWN';
+          this.sound.moveSound.play();
+        }
+      }
+    });
+  }
+  move2() {
+    document.addEventListener('keydown', event => {
+      const key = event.keyCode;
+      console.log('Output for: Snake -> event.keyCode', event.keyCode);
+      event.preventDefault();
+      if (this.state) {
+        if (key === 65 && this.dir !== 'RIGHT') {
+          //we go left if we're not going right
+          this.dir = 'LEFT';
+          this.sound.moveSound.play();
+        } else if (key === 87 && this.dir !== 'DOWN') {
+          //we go up if we're not going down
+          this.dir = 'UP';
+          this.sound.moveSound.play();
+        } else if (key === 83 && this.dir !== 'LEFT') {
+          //we go right only if we're not going left
+          this.dir = 'RIGHT';
+          this.sound.moveSound.play();
+        } else if (key === 90 && this.dir !== 'UP') {
           //and we go down if we're not going up.
           this.dir = 'DOWN';
           this.sound.moveSound.play();
@@ -80,7 +101,7 @@ class Snake {
     //There's 5-cases. Collision with the boarders and with snake itself.
     if (
       snakeX < this.game.box ||
-      snakeX > 18 * this.game.box ||
+      snakeX > 28 * this.game.box ||
       snakeY < 2 * this.game.box ||
       snakeY > 19 * this.game.box ||
       this.collision(newHead, aSnake)
