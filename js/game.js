@@ -13,7 +13,7 @@ class Game {
     this.playersPosition = {
       player1Pos: [
         {
-          x: 9 * this.box,
+          x: 18 * this.box,
           y: 10 * this.box,
           w: this.box,
           h: this.box,
@@ -21,7 +21,7 @@ class Game {
       ],
       player2Pos: [
         {
-          x: 18 * this.box,
+          x: 9 * this.box,
           y: 10 * this.box,
           w: this.box,
           h: this.box,

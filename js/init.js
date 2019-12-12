@@ -29,10 +29,22 @@ window.addEventListener('load', () => {
         newGame.food.randomizeImg();
         newGame.food.getImg();
         newGame.player1.dir = undefined;
+        newGame.player2.dir = undefined;
         newGame.score = 0;
         newGame.player1.length = 1;
+        newGame.player2.length = 1;
         newGame.player1.state = true;
+        newGame.player2.state = true;
+        // newGame.player1.snakeRoute = newGame.playersPosition.player1Pos;
         newGame.player1.snakeRoute = [
+          {
+            x: 19 * newGame.box,
+            y: 10 * newGame.box,
+            w: newGame.box,
+            h: newGame.box,
+          },
+        ];
+        newGame.player2.snakeRoute = [
           {
             x: 9 * newGame.box,
             y: 10 * newGame.box,
