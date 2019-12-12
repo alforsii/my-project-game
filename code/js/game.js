@@ -10,7 +10,7 @@ class Game {
       x: Math.floor(Math.random() * 27 + 1) * this.box,
       y: Math.floor(Math.random() * 15 + 3) * this.box,
     };
-    this.playersPosition = {
+    this.playersPositions = {
       player1Pos: [
         {
           x: 19 * this.box,
@@ -28,12 +28,13 @@ class Game {
         },
       ],
     };
-    this.player1 = new Player(this, this.playersPosition.player1Pos, 'red');
-    this.player2 = new Player(this, this.playersPosition.player2Pos, 'blue');
+    this.player1 = new Player(this, this.playersPositions.player1Pos, 'red');
+    this.player2 = new Player(this, this.playersPositions.player2Pos, 'blue');
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
     this.gameOverImg = new Image();
     this.gameOverImg.src = './code/img/game-over-2.png';
     this.interID = undefined;
+    this.canvasButtons = undefined;
     this.restartBtn = undefined;
     this.exitBtn = undefined;
     this.scoreColor = undefined;
@@ -51,7 +52,7 @@ class Game {
       this.player2.remote2();
       // this.scoreColors();
       this.playersCollision();
-    }, 120);
+    }, 130);
   }
   // //------------------------- drawGround()-------------------------
   drawGround() {
@@ -112,15 +113,17 @@ class Game {
       this.ctx.fillText(``, 230, 50);
     }
     //create restart and exit buttons
-    let canvasButtons = document.getElementById('canvasButtons');
+    this.canvasButtons = document.getElementById('canvasButtons');
     this.restartBtn = document.createElement('button');
     this.exitBtn = document.createElement('button');
-    canvasButtons.appendChild(this.restartBtn);
-    canvasButtons.appendChild(this.exitBtn);
     this.restartBtn.setAttribute('id', 'restart-button');
     this.exitBtn.setAttribute('id', 'exit-button');
     this.restartBtn.innerHTML = 'Reset';
     this.exitBtn.innerHTML = 'Exit';
+    if (!canvasButtons.innerHTML.includes('button')) {
+      canvasButtons.appendChild(this.restartBtn);
+      canvasButtons.appendChild(this.exitBtn);
+    }
   }
 
   //set both players collision
@@ -130,12 +133,7 @@ class Game {
     for (let i = 0; i < p1.length; i++) {
       for (let j = 0; j < p2.length; j++) {
         if (p1[i].x === p2[j].x && p1[i].y === p2[j].y) {
-          if (this.player1.state && this.player1.state) {
-            this.player1.sound.dead.play();
-            // this.player2.sound.dead.play();
-            this.player1.state = false;
-            this.player2.state = false;
-          }
+          this.player1.sound.dead.play();
           clearInterval(this.interID);
           this.gameOver();
           return;
@@ -145,23 +143,23 @@ class Game {
   }
 
   //switch colors depending on player score.
-  scoreColors() {
-    if (this.score === 0) this.scoreColor = '#f00'; //red
-    if (this.score > 0) this.scoreColor = '#fff'; //white
-    if (this.score > 10) this.scoreColor = '#ff0'; //yellow
-    if (this.score > 20) this.scoreColor = 'orange'; //
-    if (this.score > 30) this.scoreColor = '#f00'; //red
-    if (this.score > 40) this.scoreColor = '#green'; //green
+  // scoreColors() {
+  //   if (this.score === 0) this.scoreColor = '#f00'; //red
+  //   if (this.score > 0) this.scoreColor = '#fff'; //white
+  //   if (this.score > 10) this.scoreColor = '#ff0'; //yellow
+  //   if (this.score > 20) this.scoreColor = 'orange'; //
+  //   if (this.score > 30) this.scoreColor = '#f00'; //red
+  //   if (this.score > 40) this.scoreColor = '#green'; //green
 
-    if (this.score % 10 === 0 && this.score > 0) {
-      this.scoreColor = '#fff';
-      this.ctx.fillStyle = this.scoreColor;
-      this.ctx.font = '35px Arial';
-      this.ctx.fillText(
-        `Congrats, you earned ${this.score} points`,
-        this.width / 2 - 220,
-        this.height / 2
-      );
-    }
-  }
+  //   if (this.score % 10 === 0 && this.score > 0) {
+  //     this.scoreColor = '#fff';
+  //     this.ctx.fillStyle = this.scoreColor;
+  //     this.ctx.font = '35px Arial';
+  //     this.ctx.fillText(
+  //       `Congrats, you earned ${this.score} points`,
+  //       this.width / 2 - 220,
+  //       this.height / 2
+  //     );
+  //   }
+  // }
 }

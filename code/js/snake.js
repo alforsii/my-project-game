@@ -3,7 +3,6 @@ class Snake {
     this.game = game;
     this.sound = new Sound();
     this.score = 0;
-    // this.length = 1; //this is for display, starts with 1 as it is.
     this.snakeRoute = pos;
     this.color = color;
     this.state = false;
@@ -63,30 +62,17 @@ class Snake {
       }
       clearInterval(this.game.interID);
       this.game.gameOver();
-      if (this.game.player1.collision || this.game.player2.collision) {
-        this.sound.dead.play();
-      }
       return; //also we want to stop(return) this function when collision, else will pop tail and unshift extra same head to our snake, which may cause some problem.
     }
     //-------detect  snake collision with food-----------------
     if (snakeX === this.game.food.x && snakeY === this.game.food.y) {
       this.score++;
-      // this.length++;
       this.sound.eat.play();
-
       // console.log('Output: this.game.food', this.game.food);
       // console.log('Output: this.snakeRoute', this.snakeRoute);
       this.game.food.randomizeImg();
       this.game.food.x = Math.floor(Math.random() * 27 + 1) * this.game.box;
       this.game.food.y = Math.floor(Math.random() * 15 + 2) * this.game.box;
-      //switch background color when score meets condition.
-      let bgColor;
-      if (this.game.score < 10) bgColor = '#000'; //black
-      if (this.game.score > 10) bgColor = '#f00'; //red
-      if (this.game.score > 20) bgColor = '#00f'; // blue
-      if (this.game.score > 30) bgColor = '#0f0'; //lightGreen
-      if (this.game.score > 40) bgColor = '#0ff'; //lightBlue
-      document.body.style.background = bgColor;
       //if eats food we don't remove the tail, instead we want to extend
     } else {
       //remove the tail every other case
