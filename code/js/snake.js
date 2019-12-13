@@ -65,10 +65,11 @@ class Snake {
     //-------detect  snake collision with food-----------------
     if (snakeX === this.game.food.x && snakeY === this.game.food.y) {
       this.sound.eat.play();
-      this.score++;
+      //I just want coin sound delay because of eating sound so I put score together when score coin plus.
       setTimeout(() => {
+        this.score++;
         this.sound.coin.play();
-      }, 1000);
+      }, 500);
       // console.log('Output: this.game.food', this.game.food);
       // console.log('Output: this.snakeRoute', this.snakeRoute);
       this.game.food.randomizeImg();

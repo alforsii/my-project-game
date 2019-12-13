@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  //initiate the new game,and references to font image and buttons.
+  //Create new game, references to font image and buttons.
   const newGame = new Game();
   const fontImg = document.querySelector('body img');
   const start = document.getElementById('start-button');
@@ -8,15 +8,18 @@ window.addEventListener('load', () => {
   score1.classList.add('display-none');
   score2.classList.add('display-none');
 
-  // // all click event buttons.
+  // // All click event buttons.
   document.onclick = event => {
     let btnID = event.target.id;
     switch (btnID) {
       // Start game
       case 'start-button':
-        //this just reverse names when game starts to match keyboard.
+        //Activate canvas, hide main and start the game
         if (newGame.player1Name.value || newGame.player2Name.value) {
+          //this just reverse names when game starts to match keyboard.
           playersDiv.classList.add('players');
+          score1.classList.remove('display-none');
+          score2.classList.remove('display-none');
           newGame.canvas.classList.remove('display-none');
           document.body.style.background = '#203447';
           fontImg.classList.add('display-none');
@@ -25,21 +28,20 @@ window.addEventListener('load', () => {
         }
         if (!newGame.player1Name.value && !newGame.player2Name.value)
           alert(`Please enter name`);
+        //Activate player1 only
         if (newGame.player1Name.value && !newGame.player2Name.value) {
           newGame.player1.state = true;
-          score1.classList.remove('display-none');
-          newGame.player2Name.classList.add('display-none');
+          player2div.remove();
         }
+        //Activate player2 only
         if (!newGame.player1Name.value && newGame.player2Name.value) {
           newGame.player2.state = true;
-          score2.classList.remove('display-none');
-          newGame.player1Name.classList.add('display-none');
+          player1div.remove();
         }
+        //Activate player1 and player2
         if (newGame.player1Name.value && newGame.player2Name.value) {
           newGame.player1.state = true;
           newGame.player2.state = true;
-          score1.classList.remove('display-none');
-          score2.classList.remove('display-none');
         }
         break;
       //Reset game
@@ -49,6 +51,7 @@ window.addEventListener('load', () => {
         newGame.drawGround();
         newGame.food.randomizeImg();
         newGame.food.getImg();
+        //reset player1 only
         if (newGame.player1Name.value && !newGame.player2Name.value) {
           newGame.player1.dir = undefined;
           newGame.player1.score = 0;
@@ -63,6 +66,7 @@ window.addEventListener('load', () => {
             },
           ];
         }
+        //reset player2 only
         if (!newGame.player1Name.value && newGame.player2Name.value) {
           newGame.player2.dir = undefined;
           newGame.player2.score = 0;
@@ -77,6 +81,7 @@ window.addEventListener('load', () => {
             },
           ];
         }
+        //reset player1 and player2
         if (newGame.player1Name.value && newGame.player2Name.value) {
           newGame.player1.dir = undefined;
           newGame.player1.score = 0;
@@ -106,7 +111,7 @@ window.addEventListener('load', () => {
         // Otherwise it will not work.
         newGame.startTheGame();
         break;
-      //Exit game
+      //Exit game and reload the page
       case 'exit-button':
         location.reload();
         break;

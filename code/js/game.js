@@ -84,9 +84,15 @@ class Game {
     //game border
     this.ctx.strokeStyle = '#203447s';
     this.ctx.strokeRect(this.box, 2 * this.box, 28 * this.box, 18 * this.box);
-    //-----------Display score------------
-    score1.value = `${this.player1.score}`;
-    score2.value = `${this.player2.score}`;
+    //-----------Display score update------------
+    setTimeout(() => {
+      if (this.player1Name.value) {
+        score1.value = `${this.player1.score}`;
+      }
+      if (this.player2Name.value) {
+        score2.value = `${this.player2.score}`;
+      }
+    }, 500);
   }
   // //-------------------------clear()----------------------------------- // //
   clear() {
@@ -119,13 +125,15 @@ class Game {
       canvasButtons.appendChild(this.exitBtn);
     }
     //check status win
-    if (this.player1.score > this.player2.score) {
-      scoreText.innerHTML = `${this.player1Name.value} you are winner!`;
-    } else if (this.player1.score < this.player2.score) {
-      scoreText.innerHTML = `${this.player2Name.value} you are winner!`;
-    } else {
-      scoreText.innerHTML = `It's a draw!`;
-    }
+    setTimeout(() => {
+      if (this.player1.score > this.player2.score) {
+        scoreText.innerHTML = `${this.player1Name.value} you are winner!`;
+      } else if (this.player1.score < this.player2.score) {
+        scoreText.innerHTML = `${this.player2Name.value} you are winner!`;
+      } else {
+        scoreText.innerHTML = `It's a draw!`;
+      }
+    }, 500);
   }
 
   //set both players collision
