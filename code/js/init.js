@@ -16,6 +16,7 @@ window.addEventListener('load', () => {
         fontImg.classList.add('display-none');
         start.classList.add('display-none');
         newGame.canvas.classList.remove('display-none');
+        document.body.style.background = '#203447';
         newGame.startTheGame();
         break;
       //Reset game
@@ -23,7 +24,6 @@ window.addEventListener('load', () => {
         newGame.clear();
         newGame.canvasButtons.innerHTML = '';
         newGame.drawGround();
-        document.body.style.background = 'lightBlue';
         newGame.food.randomizeImg();
         newGame.food.getImg();
         newGame.player1.dir = undefined;

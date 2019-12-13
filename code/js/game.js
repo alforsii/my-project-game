@@ -30,8 +30,16 @@ class Game {
     };
     this.player1Name = document.getElementById('player-1').value;
     this.player2Name = document.getElementById('player-2').value;
-    this.player1 = new Player(this, this.playersPositions.player1Pos, 'red');
-    this.player2 = new Player(this, this.playersPositions.player2Pos, 'blue');
+    this.player1 = new Player(
+      this,
+      this.playersPositions.player1Pos,
+      '#FF851B'
+    );
+    this.player2 = new Player(
+      this,
+      this.playersPositions.player2Pos,
+      '#FF4136'
+    );
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
     this.gameOverImg = new Image();
     this.gameOverImg.src = './img/game-over-2.png';
@@ -65,19 +73,21 @@ class Game {
         // // all blue boxes.
         //1) all Even lines on X and Y fill with blue
         if (x % 2 === 0 && y % 2 === 0) {
-          this.ctx.fillStyle = 'rgb(4, 160, 218)';
+          this.ctx.fillStyle = '#203447';
           this.ctx.fillRect(x * this.box, y * this.box, this.box, this.box);
         }
         //2) all Odd lines on X and Y fill with blue
         if (x % 2 !== 0 && y % 2 !== 0) {
-          this.ctx.fillStyle = 'rgb(4, 160, 218)';
+          this.ctx.fillStyle = '#203447';
           this.ctx.fillRect(x * this.box, y * this.box, this.box, this.box);
         }
         //3) all boxes borders with stroke.
-        this.ctx.strokeStyle = 'rgb(4, 160, 218)';
-        this.ctx.strokeRect(x * this.box, y * this.box, this.box, this.box);
+        // this.ctx.strokeStyle = 'rgb(4, 160, 218)';
+        // this.ctx.strokeRect(x * this.box, y * this.box, this.box, this.box);
       }
     }
+    this.ctx.strokeStyle = '#203447s';
+    this.ctx.strokeRect(this.box, 2 * this.box, 28 * this.box, 18 * this.box);
     //-----------Display score------------
     this.ctx.font = '35px Arial';
     this.ctx.fillStyle = this.player1.color;

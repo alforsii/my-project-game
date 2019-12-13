@@ -1,5 +1,4 @@
 body {
-  background: lightblue;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -13,6 +12,7 @@ body img {
 }
 /* -------canvas -----------*/
 canvas {
+  background: teal;
   display: block;
   margin: 0 auto;
   border: 3px solid #000;

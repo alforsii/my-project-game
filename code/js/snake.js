@@ -20,19 +20,18 @@ class Snake {
     for (let i = 0; i < aSnake.length; i++) {
       this.game.ctx.fillStyle = i === 0 ? this.color : 'lightGreen';
       this.game.ctx.fillRect(
-        aSnake[i].x,
-        aSnake[i].y,
-        aSnake[i].w,
-        aSnake[i].h
+        aSnake[i].x + 2,
+        aSnake[i].y + 2,
+        aSnake[i].w - 4,
+        aSnake[i].h - 4
       );
-
-      this.game.ctx.strokeStyle = 'black';
-      this.game.ctx.strokeRect(
-        aSnake[i].x,
-        aSnake[i].y,
-        aSnake[i].w,
-        aSnake[i].h
-      );
+      // this.game.ctx.strokeStyle = 'black';
+      // this.game.ctx.strokeRect(
+      //   aSnake[i].x + 2,
+      //   aSnake[i].y + 2,
+      //   aSnake[i].w - 4,
+      //   aSnake[i].h - 4
+      // );
     }
 
     let snakeX = aSnake[0].x;
@@ -65,8 +64,11 @@ class Snake {
     }
     //-------detect  snake collision with food-----------------
     if (snakeX === this.game.food.x && snakeY === this.game.food.y) {
-      this.score++;
       this.sound.eat.play();
+      setTimeout(() => {
+        this.sound.coin.play();
+        this.score++;
+      }, 1000);
       // console.log('Output: this.game.food', this.game.food);
       // console.log('Output: this.snakeRoute', this.snakeRoute);
       this.game.food.randomizeImg();
