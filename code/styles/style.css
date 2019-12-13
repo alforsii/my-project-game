@@ -1,7 +1,17 @@
 body {
   background: lightblue;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
 }
-/* canvas */
+/* ---------font image------------- */
+body img {
+  /* position: absolute; */
+  width: 80%;
+  /* z-index: 0; */
+}
+/* -------canvas -----------*/
 canvas {
   display: block;
   margin: 0 auto;
@@ -15,33 +25,33 @@ canvas {
   align-items: center;
 }
 /* buttons */
+/* ------------start button--------------- */
 #start-button {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 10vw;
+  /* font-family: 'Courier New', Courier, monospace; */
+  font-size: 50px;
   font-weight: bolder;
   background-color: transparent;
-  color: #0f0;
+  color: navy;
   border: none;
-  position: relative;
-  top: 0;
-  left: 40%;
-  animation-name: start-button;
-  animation-duration: 13s;
-  animation-fill-mode: forwards;
+  /* z-index: 1; */
+  cursor: pointer;
+  /* align-self: flex-start; */
+  /* position: relative; */
+  /* top: 0; */
+  /* left: 40%; */
 }
-/* start button animation */
-/* @keyframes start-button {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-} */
-
 #start-button:hover {
   color: rgb(11, 155, 11);
   cursor: pointer;
+}
+/*----------------- canvas buttons------------- */
+#canvasButtons {
+  display: flex;
+  width: 900px; /*canvas width*/
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 65px;
 }
 
 #restart-button {
@@ -53,6 +63,13 @@ canvas {
   padding: 5px 20px;
   border: none;
 }
+#score-button {
+  color: red;
+  font-size: 40px;
+  background-color: transparent;
+  padding: 5px 20px;
+  border: none;
+}
 #exit-button {
   color: rgb(67, 73, 69);
   font-size: 40px;
@@ -61,41 +78,31 @@ canvas {
   padding: 5px 20px;
   border: none;
 }
-#canvasButtons {
-  display: flex;
-  width: 1400px; /*canvas width*/
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-  top: 65px;
-}
 #restart-button:hover {
   color: #0f0;
 }
 #exit-button:hover {
   color: red;
 }
-/* font image */
-body img {
-  position: absolute;
 
-  animation-name: snake-font;
-  animation-duration: 3s;
-  animation-timing-function: ease-in;
-}
-
-/* img animation */
-/* @keyframes snake-font {
-  0% {
-    left: -1500px;
-    opacity: 0;
-  }
-  100% {
-    left: 0;
-    opacity: 1;
-  }
-} */
-
+/* class display-none */
 .display-none {
   display: none;
+}
+
+#start {
+  font-family: monospace;
+  width: 900px;
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+input {
+  padding: 0 10px;
+  font-family: monospace;
+  font-size: 16px;
+  width: 200px;
+  height: 30px;
 }

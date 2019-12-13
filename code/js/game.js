@@ -28,6 +28,8 @@ class Game {
         },
       ],
     };
+    this.player1Name = document.getElementById('player-1').value;
+    this.player2Name = document.getElementById('player-2').value;
     this.player1 = new Player(this, this.playersPositions.player1Pos, 'red');
     this.player2 = new Player(this, this.playersPositions.player2Pos, 'blue');
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
@@ -37,6 +39,7 @@ class Game {
     this.canvasButtons = undefined;
     this.restartBtn = undefined;
     this.exitBtn = undefined;
+    this.scoreBtn;
     this.scoreColor = undefined;
   }
   // -------------------------startTheGame()-------------------------
@@ -75,13 +78,12 @@ class Game {
         this.ctx.strokeRect(x * this.box, y * this.box, this.box, this.box);
       }
     }
-    //-----------Display score and length------------
-    this.ctx.fillStyle = this.player1.color;
+    //-----------Display score------------
     this.ctx.font = '35px Arial';
-    this.ctx.fillText(`Score: ${this.player1.score}`, 590, 50);
+    this.ctx.fillStyle = this.player1.color;
+    this.ctx.fillText(`Player1: ${this.player1.score}`, 590, 50);
     this.ctx.fillStyle = this.player2.color;
-    this.ctx.fillText(`Score: ${this.player2.score}`, 140, 50);
-    // this.ctx.fillText(`Length: ${this.player1.length}`, 400, 50);
+    this.ctx.fillText(`Player2: ${this.player2.score}`, 140, 50);
   }
   // //-------------------------clear()----------------------------------- // //
   clear() {
@@ -92,37 +94,34 @@ class Game {
     this.clear();
     // //--------Display game over image-------------------------
     this.ctx.drawImage(this.gameOverImg, 0, 0, this.width, this.height);
-    //draw score and score color
-    this.ctx.font = '35px Arial';
-    if (this.player1.score > this.player2.score) {
-      this.ctx.fillStyle = this.player1.color;
-      this.ctx.fillText(
-        `Player1 won with score:${this.player1.score}`,
-        250,
-        50
-      );
-    } else if (this.player1.score < this.player2.score) {
-      this.ctx.fillStyle = this.player2.color;
-      this.ctx.fillText(
-        `Player2 won with score: ${this.player2.score}`,
-        250,
-        50
-      );
-    } else {
-      this.ctx.fillStyle = 'white';
-      this.ctx.fillText(``, 230, 50);
-    }
-    //create restart and exit buttons
     this.canvasButtons = document.getElementById('canvasButtons');
+    //create score button instead of canvas fillText and two other buttons
+    //to avoid positioning if text width changes
+    //we add score button inside canvasButtons which already flexed with space-around
+    this.scoreBtn = document.createElement('button');
+    this.scoreBtn.setAttribute('id', 'score-button');
+    //create restart button
     this.restartBtn = document.createElement('button');
-    this.exitBtn = document.createElement('button');
     this.restartBtn.setAttribute('id', 'restart-button');
-    this.exitBtn.setAttribute('id', 'exit-button');
     this.restartBtn.innerHTML = 'Reset';
+    //create exit button
+    this.exitBtn = document.createElement('button');
+    this.exitBtn.setAttribute('id', 'exit-button');
     this.exitBtn.innerHTML = 'Exit';
+    //append buttons to canvasButtons if it's not created yet
+    // to avoid create double buttons when both players have collision the same time.
     if (!canvasButtons.innerHTML.includes('button')) {
       canvasButtons.appendChild(this.restartBtn);
+      canvasButtons.appendChild(this.scoreBtn); //create in the middle
       canvasButtons.appendChild(this.exitBtn);
+    }
+    //check status win
+    if (this.player1.score > this.player2.score) {
+      this.scoreBtn.innerHTML = `Player1 is the winner!`;
+    } else if (this.player1.score < this.player2.score) {
+      this.scoreBtn.innerHTML = `Player2 is the winner!`;
+    } else {
+      this.scoreBtn.innerHTML = `It's a draw!`;
     }
   }
 
