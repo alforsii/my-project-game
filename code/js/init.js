@@ -3,6 +3,7 @@ window.addEventListener('load', () => {
   const newGame = new Game();
   const fontImg = document.querySelector('body img');
   const start = document.getElementById('start-button');
+  const playersDiv = document.getElementById('players');
   newGame.canvas.classList.add('display-none');
 
   // // all click event buttons.
@@ -11,8 +12,8 @@ window.addEventListener('load', () => {
     switch (btnID) {
       // Start game
       case 'start-button':
-        // player1.remove();//input placeholder
-        // player2.remove();//input placeholder
+        //this just reverse names when game starts to match keyboard.
+        playersDiv.classList.add('players');
         if (!newGame.player1Name.value && !newGame.player2Name.value)
           alert(`Please enter name`);
         if (newGame.player1Name.value && !newGame.player2Name.value) {
@@ -50,30 +51,58 @@ window.addEventListener('load', () => {
         newGame.drawGround();
         newGame.food.randomizeImg();
         newGame.food.getImg();
-        newGame.player1.dir = undefined;
-        newGame.player2.dir = undefined;
-        newGame.player1.score = 0;
-        newGame.player2.score = 0;
-        newGame.player1.length = 1;
-        newGame.player2.length = 1;
-        newGame.player1.state = true;
-        newGame.player2.state = true;
-        newGame.player1.snakeRoute = [
-          {
-            x: 19 * newGame.box,
-            y: 10 * newGame.box,
-            w: newGame.box,
-            h: newGame.box,
-          },
-        ];
-        newGame.player2.snakeRoute = [
-          {
-            x: 9 * newGame.box,
-            y: 10 * newGame.box,
-            w: newGame.box,
-            h: newGame.box,
-          },
-        ];
+        if (newGame.player1Name.value && !newGame.player2Name.value) {
+          newGame.player1.dir = undefined;
+          newGame.player1.score = 0;
+          newGame.player1.state = true;
+          newGame.player2.state = false;
+          newGame.player1.snakeRoute = [
+            {
+              x: 19 * newGame.box,
+              y: 10 * newGame.box,
+              w: newGame.box,
+              h: newGame.box,
+            },
+          ];
+        }
+        if (!newGame.player1Name.value && newGame.player2Name.value) {
+          newGame.player2.dir = undefined;
+          newGame.player2.score = 0;
+          newGame.player1.state = false;
+          newGame.player2.state = true;
+          newGame.player2.snakeRoute = [
+            {
+              x: 9 * newGame.box,
+              y: 10 * newGame.box,
+              w: newGame.box,
+              h: newGame.box,
+            },
+          ];
+        }
+        if (newGame.player1Name.value && newGame.player2Name.value) {
+          newGame.player1.dir = undefined;
+          newGame.player1.score = 0;
+          newGame.player1.state = true;
+          newGame.player1.snakeRoute = [
+            {
+              x: 19 * newGame.box,
+              y: 10 * newGame.box,
+              w: newGame.box,
+              h: newGame.box,
+            },
+          ];
+          newGame.player2.dir = undefined;
+          newGame.player2.score = 0;
+          newGame.player2.state = true;
+          newGame.player2.snakeRoute = [
+            {
+              x: 9 * newGame.box,
+              y: 10 * newGame.box,
+              w: newGame.box,
+              h: newGame.box,
+            },
+          ];
+        }
         //This startTheGame() needs to be at the bottom,
         // after resetting all components in order to restart the game.
         // Otherwise it will not work.

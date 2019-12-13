@@ -114,11 +114,14 @@ input {
   display: flex;
   justify-content: space-around;
 }
+.players {
+  flex-direction: row-reverse;
+}
 #player1 {
-  color: #ff4136;
+  color: #ff851b;
 }
 #player2 {
-  color: #ff851b;
+  color: #ff4136;
 }
 .name {
   position: relative;

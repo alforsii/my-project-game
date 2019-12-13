@@ -61,12 +61,20 @@ class Game {
       this.clear();
       this.drawGround();
       this.food.getImg();
-      this.player1.drawSnake();
-      this.player2.drawSnake();
-      this.player1.remote1();
-      this.player2.remote2();
+      if (this.player1Name.value && !this.player2Name.value) {
+        this.player1.drawSnake();
+        this.player1.remote1();
+      } else if (!this.player1Name.value && this.player2Name.value) {
+        this.player2.drawSnake();
+        this.player2.remote2();
+      } else {
+        this.player1.drawSnake();
+        this.player1.remote1();
+        this.player2.drawSnake();
+        this.player2.remote2();
+        this.playersCollision();
+      }
       // this.scoreColors();
-      this.playersCollision();
     }, 130);
   }
   // //------------------------- drawGround()-------------------------
@@ -131,9 +139,9 @@ class Game {
     }
     //check status win
     if (this.player1.score > this.player2.score) {
-      this.scoreBtn.innerHTML = `Player1 is the winner!`;
+      this.scoreBtn.innerHTML = `${this.player1Name.value} is the winner!`;
     } else if (this.player1.score < this.player2.score) {
-      this.scoreBtn.innerHTML = `Player2 is the winner!`;
+      this.scoreBtn.innerHTML = `${this.player2Name.value} is the winner!`;
     } else {
       this.scoreBtn.innerHTML = `It's a draw!`;
     }

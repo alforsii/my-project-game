@@ -2,8 +2,6 @@
 
 ## Introduction
 
-`Build Snake game canvas`
-
 ## 1. First iteration: Create class Game and Draw background
 
 - Create a **_<canvas_>** element.
