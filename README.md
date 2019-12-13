@@ -1,10 +1,8 @@
-![Ironhack Logo](https://i.imgur.com/1QgrNNw.png)
-
 # JS | Canvas Snake
 
 ## Introduction
 
-This game is made in `canvas` .
+`Build Snake game canvas`
 
 ## 1. First iteration: Create class Game and Draw background
 
