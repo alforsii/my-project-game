@@ -7,7 +7,7 @@ body {
 /* ---------font image------------- */
 body img {
   /* position: absolute; */
-  width: 80%;
+  width: 100%;
   /* z-index: 0; */
 }
 /* -------canvas -----------*/
@@ -94,15 +94,38 @@ canvas {
   font-family: monospace;
   width: 900px;
   display: flex;
+  flex-direction: column-reverse;
   /* justify-content: space-between; */
-  justify-content: flex-start;
-  align-items: center;
+  /* justify-content: flex-start; */
+  /* align-items: center; */
 }
 
 input {
-  padding: 0 10px;
+  /* padding-left: 20px; */
   font-family: monospace;
   font-size: 16px;
+  text-align: center;
+  /* color: red; */
   width: 200px;
   height: 30px;
+}
+#players {
+  width: 900px;
+  display: flex;
+  justify-content: space-around;
+}
+#player1 {
+  color: #ff4136;
+}
+#player2 {
+  color: #ff851b;
+}
+.name {
+  position: relative;
+  top: 55px;
+  height: 40px;
+  font-size: 22px;
+  background: transparent;
+  border: none;
+  background-color: rgb(17, 15, 15, 0.2);
 }

@@ -28,8 +28,12 @@ class Game {
         },
       ],
     };
-    this.player1Name = document.getElementById('player-1').value;
-    this.player2Name = document.getElementById('player-2').value;
+    this.player1Name = document.getElementById('player1');
+    this.player2Name = document.getElementById('player2');
+    console.log(
+      'Output for: Game -> constructor -> this.player2Name',
+      this.player2Name
+    );
     this.player1 = new Player(
       this,
       this.playersPositions.player1Pos,
@@ -89,11 +93,11 @@ class Game {
     this.ctx.strokeStyle = '#203447s';
     this.ctx.strokeRect(this.box, 2 * this.box, 28 * this.box, 18 * this.box);
     //-----------Display score------------
-    this.ctx.font = '35px Arial';
-    this.ctx.fillStyle = this.player1.color;
-    this.ctx.fillText(`Player1: ${this.player1.score}`, 590, 50);
-    this.ctx.fillStyle = this.player2.color;
-    this.ctx.fillText(`Player2: ${this.player2.score}`, 140, 50);
+    // this.ctx.font = '35px Arial';
+    // this.ctx.fillStyle = this.player1.color;
+    // this.ctx.fillText(`Player1: ${this.player1.score}`, 590, 50);
+    // this.ctx.fillStyle = this.player2.color;
+    // this.ctx.fillText(`Player2: ${this.player2.score}`, 140, 50);
   }
   // //-------------------------clear()----------------------------------- // //
   clear() {

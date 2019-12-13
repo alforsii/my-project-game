@@ -11,13 +11,37 @@ window.addEventListener('load', () => {
     switch (btnID) {
       // Start game
       case 'start-button':
-        newGame.player1.state = true;
-        newGame.player2.state = true;
-        fontImg.classList.add('display-none');
-        start.classList.add('display-none');
-        newGame.canvas.classList.remove('display-none');
-        document.body.style.background = '#203447';
-        newGame.startTheGame();
+        // player1.remove();//input placeholder
+        // player2.remove();//input placeholder
+        if (!newGame.player1Name.value && !newGame.player2Name.value)
+          alert(`Please enter name`);
+        if (newGame.player1Name.value && !newGame.player2Name.value) {
+          newGame.player1.state = true;
+          newGame.player2Name.classList.add('display-none');
+          fontImg.classList.add('display-none');
+          start.classList.add('display-none');
+          newGame.canvas.classList.remove('display-none');
+          document.body.style.background = '#203447';
+          newGame.startTheGame();
+        }
+        if (!newGame.player1Name.value && newGame.player2Name.value) {
+          newGame.player2.state = true;
+          newGame.player1Name.classList.add('display-none');
+          fontImg.classList.add('display-none');
+          start.classList.add('display-none');
+          newGame.canvas.classList.remove('display-none');
+          document.body.style.background = '#203447';
+          newGame.startTheGame();
+        }
+        if (newGame.player1Name.value && newGame.player2Name.value) {
+          newGame.player1.state = true;
+          newGame.player2.state = true;
+          fontImg.classList.add('display-none');
+          start.classList.add('display-none');
+          newGame.canvas.classList.remove('display-none');
+          document.body.style.background = '#203447';
+          newGame.startTheGame();
+        }
         break;
       //Reset game
       case 'restart-button':
