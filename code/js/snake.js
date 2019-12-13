@@ -65,9 +65,9 @@ class Snake {
     //-------detect  snake collision with food-----------------
     if (snakeX === this.game.food.x && snakeY === this.game.food.y) {
       this.sound.eat.play();
+      this.score++;
       setTimeout(() => {
         this.sound.coin.play();
-        this.score++;
       }, 1000);
       // console.log('Output: this.game.food', this.game.food);
       // console.log('Output: this.snakeRoute', this.snakeRoute);

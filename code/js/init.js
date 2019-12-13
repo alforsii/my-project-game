@@ -5,6 +5,8 @@ window.addEventListener('load', () => {
   const start = document.getElementById('start-button');
   const playersDiv = document.getElementById('players');
   newGame.canvas.classList.add('display-none');
+  score1.classList.add('display-none');
+  score2.classList.add('display-none');
 
   // // all click event buttons.
   document.onclick = event => {
@@ -13,35 +15,35 @@ window.addEventListener('load', () => {
       // Start game
       case 'start-button':
         //this just reverse names when game starts to match keyboard.
-        playersDiv.classList.add('players');
+        if (newGame.player1Name.value || newGame.player2Name.value) {
+          playersDiv.classList.add('players');
+          newGame.canvas.classList.remove('display-none');
+          document.body.style.background = '#203447';
+          fontImg.classList.add('display-none');
+          start.classList.add('display-none');
+          newGame.startTheGame();
+        }
         if (!newGame.player1Name.value && !newGame.player2Name.value)
           alert(`Please enter name`);
         if (newGame.player1Name.value && !newGame.player2Name.value) {
           newGame.player1.state = true;
+          score1.classList.remove('display-none');
+          // newGame.player1Name.value += ` : ${newGame.player1.score}`;
           newGame.player2Name.classList.add('display-none');
-          fontImg.classList.add('display-none');
-          start.classList.add('display-none');
-          newGame.canvas.classList.remove('display-none');
-          document.body.style.background = '#203447';
-          newGame.startTheGame();
         }
         if (!newGame.player1Name.value && newGame.player2Name.value) {
           newGame.player2.state = true;
+          score2.classList.remove('display-none');
+          // newGame.player2Name.value += ` : ${newGame.player2.score}`;
           newGame.player1Name.classList.add('display-none');
-          fontImg.classList.add('display-none');
-          start.classList.add('display-none');
-          newGame.canvas.classList.remove('display-none');
-          document.body.style.background = '#203447';
-          newGame.startTheGame();
         }
         if (newGame.player1Name.value && newGame.player2Name.value) {
           newGame.player1.state = true;
           newGame.player2.state = true;
-          fontImg.classList.add('display-none');
-          start.classList.add('display-none');
-          newGame.canvas.classList.remove('display-none');
-          document.body.style.background = '#203447';
-          newGame.startTheGame();
+          score1.classList.remove('display-none');
+          score2.classList.remove('display-none');
+          // newGame.player1Name.value += ` : ${newGame.player1.score}`;
+          // newGame.player2Name.value += ` : ${newGame.player2.score}`;
         }
         break;
       //Reset game

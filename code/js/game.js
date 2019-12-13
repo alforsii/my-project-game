@@ -11,7 +11,7 @@ class Game {
       y: Math.floor(Math.random() * 15 + 3) * this.box,
     };
     this.playersPositions = {
-      player1Pos: [
+      p1Pos: [
         {
           x: 19 * this.box,
           y: 10 * this.box,
@@ -19,7 +19,7 @@ class Game {
           h: this.box,
         },
       ],
-      player2Pos: [
+      p2Pos: [
         {
           x: 9 * this.box,
           y: 10 * this.box,
@@ -30,20 +30,8 @@ class Game {
     };
     this.player1Name = document.getElementById('player1');
     this.player2Name = document.getElementById('player2');
-    console.log(
-      'Output for: Game -> constructor -> this.player2Name',
-      this.player2Name
-    );
-    this.player1 = new Player(
-      this,
-      this.playersPositions.player1Pos,
-      '#FF851B'
-    );
-    this.player2 = new Player(
-      this,
-      this.playersPositions.player2Pos,
-      '#FF4136'
-    );
+    this.player1 = new Player(this, this.playersPositions.p1Pos, '#FF851B');
+    this.player2 = new Player(this, this.playersPositions.p2Pos, '#FF4136');
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
     this.gameOverImg = new Image();
     this.gameOverImg.src = './img/game-over-2.png';
@@ -52,7 +40,7 @@ class Game {
     this.restartBtn = undefined;
     this.exitBtn = undefined;
     this.scoreBtn;
-    this.scoreColor = undefined;
+    // this.scoreColor = undefined;
   }
   // -------------------------startTheGame()-------------------------
   startTheGame() {
@@ -101,11 +89,13 @@ class Game {
     this.ctx.strokeStyle = '#203447s';
     this.ctx.strokeRect(this.box, 2 * this.box, 28 * this.box, 18 * this.box);
     //-----------Display score------------
+    score1.value = `${this.player1.score}`;
+    score2.value = `${this.player2.score}`;
     // this.ctx.font = '35px Arial';
     // this.ctx.fillStyle = this.player1.color;
-    // this.ctx.fillText(`Player1: ${this.player1.score}`, 590, 50);
+    // this.ctx.fillText(`: ${this.player1.score}`, 590, 50);
     // this.ctx.fillStyle = this.player2.color;
-    // this.ctx.fillText(`Player2: ${this.player2.score}`, 140, 50);
+    // this.ctx.fillText(`: ${this.player2.score}`, 140, 50);
   }
   // //-------------------------clear()----------------------------------- // //
   clear() {
@@ -139,9 +129,9 @@ class Game {
     }
     //check status win
     if (this.player1.score > this.player2.score) {
-      this.scoreBtn.innerHTML = `${this.player1Name.value} is the winner!`;
+      this.scoreBtn.innerHTML = `${this.player1Name.value} you are winner!`;
     } else if (this.player1.score < this.player2.score) {
-      this.scoreBtn.innerHTML = `${this.player2Name.value} is the winner!`;
+      this.scoreBtn.innerHTML = `${this.player2Name.value} you are winner!`;
     } else {
       this.scoreBtn.innerHTML = `It's a draw!`;
     }

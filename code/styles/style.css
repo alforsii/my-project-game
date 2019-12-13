@@ -6,9 +6,7 @@ body {
 }
 /* ---------font image------------- */
 body img {
-  /* position: absolute; */
   width: 100%;
-  /* z-index: 0; */
 }
 /* -------canvas -----------*/
 canvas {
@@ -27,18 +25,12 @@ canvas {
 /* buttons */
 /* ------------start button--------------- */
 #start-button {
-  /* font-family: 'Courier New', Courier, monospace; */
   font-size: 50px;
   font-weight: bolder;
   background-color: transparent;
   color: navy;
   border: none;
-  /* z-index: 1; */
   cursor: pointer;
-  /* align-self: flex-start; */
-  /* position: relative; */
-  /* top: 0; */
-  /* left: 40%; */
 }
 #start-button:hover {
   color: rgb(11, 155, 11);
@@ -95,24 +87,16 @@ canvas {
   width: 900px;
   display: flex;
   flex-direction: column-reverse;
-  /* justify-content: space-between; */
-  /* justify-content: flex-start; */
-  /* align-items: center; */
 }
 
-input {
-  /* padding-left: 20px; */
-  font-family: monospace;
-  font-size: 16px;
-  text-align: center;
-  /* color: red; */
-  width: 200px;
-  height: 30px;
-}
 #players {
   width: 900px;
   display: flex;
   justify-content: space-around;
+}
+#players div {
+  display: flex;
+  height: 0px;
 }
 .players {
   flex-direction: row-reverse;
@@ -124,11 +108,29 @@ input {
   color: #ff4136;
 }
 .name {
+  font-family: monospace;
+  text-align: center;
   position: relative;
-  top: 55px;
+  top: 10px;
+  width: 200px;
   height: 40px;
   font-size: 22px;
-  background: transparent;
   border: none;
   background-color: rgb(17, 15, 15, 0.2);
+}
+#score1 {
+  color: #ff851b;
+}
+#score2 {
+  color: #ff4136;
+}
+.score {
+  position: relative;
+  text-align: center;
+  top: 10px;
+  width: 100px;
+  height: 40px;
+  font-size: 22px;
+  background-color: rgb(17, 15, 15, 0.2);
+  border: none;
 }
