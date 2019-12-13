@@ -28,13 +28,11 @@ window.addEventListener('load', () => {
         if (newGame.player1Name.value && !newGame.player2Name.value) {
           newGame.player1.state = true;
           score1.classList.remove('display-none');
-          // newGame.player1Name.value += ` : ${newGame.player1.score}`;
           newGame.player2Name.classList.add('display-none');
         }
         if (!newGame.player1Name.value && newGame.player2Name.value) {
           newGame.player2.state = true;
           score2.classList.remove('display-none');
-          // newGame.player2Name.value += ` : ${newGame.player2.score}`;
           newGame.player1Name.classList.add('display-none');
         }
         if (newGame.player1Name.value && newGame.player2Name.value) {
@@ -42,8 +40,6 @@ window.addEventListener('load', () => {
           newGame.player2.state = true;
           score1.classList.remove('display-none');
           score2.classList.remove('display-none');
-          // newGame.player1Name.value += ` : ${newGame.player1.score}`;
-          // newGame.player2Name.value += ` : ${newGame.player2.score}`;
         }
         break;
       //Reset game

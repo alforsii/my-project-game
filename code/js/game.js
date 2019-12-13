@@ -39,8 +39,7 @@ class Game {
     this.canvasButtons = undefined;
     this.restartBtn = undefined;
     this.exitBtn = undefined;
-    this.scoreBtn;
-    // this.scoreColor = undefined;
+    // this.scoreBtn;
   }
   // -------------------------startTheGame()-------------------------
   startTheGame() {
@@ -62,7 +61,6 @@ class Game {
         this.player2.remote2();
         this.playersCollision();
       }
-      // this.scoreColors();
     }, 130);
   }
   // //------------------------- drawGround()-------------------------
@@ -81,21 +79,14 @@ class Game {
           this.ctx.fillStyle = '#203447';
           this.ctx.fillRect(x * this.box, y * this.box, this.box, this.box);
         }
-        //3) all boxes borders with stroke.
-        // this.ctx.strokeStyle = 'rgb(4, 160, 218)';
-        // this.ctx.strokeRect(x * this.box, y * this.box, this.box, this.box);
       }
     }
+    //game border
     this.ctx.strokeStyle = '#203447s';
     this.ctx.strokeRect(this.box, 2 * this.box, 28 * this.box, 18 * this.box);
     //-----------Display score------------
     score1.value = `${this.player1.score}`;
     score2.value = `${this.player2.score}`;
-    // this.ctx.font = '35px Arial';
-    // this.ctx.fillStyle = this.player1.color;
-    // this.ctx.fillText(`: ${this.player1.score}`, 590, 50);
-    // this.ctx.fillStyle = this.player2.color;
-    // this.ctx.fillText(`: ${this.player2.score}`, 140, 50);
   }
   // //-------------------------clear()----------------------------------- // //
   clear() {
@@ -110,8 +101,8 @@ class Game {
     //create score button instead of canvas fillText and two other buttons
     //to avoid positioning if text width changes
     //we add score button inside canvasButtons which already flexed with space-around
-    this.scoreBtn = document.createElement('button');
-    this.scoreBtn.setAttribute('id', 'score-button');
+    const scoreText = document.createElement('span');
+    scoreText.setAttribute('id', 'score-button');
     //create restart button
     this.restartBtn = document.createElement('button');
     this.restartBtn.setAttribute('id', 'restart-button');
@@ -124,16 +115,16 @@ class Game {
     // to avoid create double buttons when both players have collision the same time.
     if (!canvasButtons.innerHTML.includes('button')) {
       canvasButtons.appendChild(this.restartBtn);
-      canvasButtons.appendChild(this.scoreBtn); //create in the middle
+      canvasButtons.appendChild(scoreText); //create in the middle
       canvasButtons.appendChild(this.exitBtn);
     }
     //check status win
     if (this.player1.score > this.player2.score) {
-      this.scoreBtn.innerHTML = `${this.player1Name.value} you are winner!`;
+      scoreText.innerHTML = `${this.player1Name.value} you are winner!`;
     } else if (this.player1.score < this.player2.score) {
-      this.scoreBtn.innerHTML = `${this.player2Name.value} you are winner!`;
+      scoreText.innerHTML = `${this.player2Name.value} you are winner!`;
     } else {
-      this.scoreBtn.innerHTML = `It's a draw!`;
+      scoreText.innerHTML = `It's a draw!`;
     }
   }
 
