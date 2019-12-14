@@ -57,9 +57,8 @@ class Player extends Snake {
     });
   }
   mobileRemote() {
-    document.addEventListener('click', event => {
+    document.onclick = event => {
       const key = event.target.id;
-      console.log('Output for: Player -> mobileRemote -> key', key);
       event.preventDefault();
       if (this.state) {
         if (key === 'left' && this.dir !== 'RIGHT') {
@@ -80,6 +79,6 @@ class Player extends Snake {
           this.sound.moveSound.play();
         }
       }
-    });
+    };
   }
 }
