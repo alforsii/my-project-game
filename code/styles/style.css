@@ -3,10 +3,12 @@ body {
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
+  /* background: url(../img/snake-gif.gif) no-repeat 0vw -5vw;
+  background-size: cover; */
 }
 /* ---------font image------------- */
 body img {
-  width: 100%;
+  width: 100vw;
 }
 /* -------canvas -----------*/
 canvas {
@@ -23,46 +25,18 @@ canvas {
   justify-content: center;
   align-items: center;
 } */
-@media (min-width: 501px) {
-  #arrowButtonsDiv {
-    display: none;
-  }
-}
-@media (max-width: 500px) {
-  .arrowButtons {
-    padding: 20px 40px;
-    font-size: 20px;
-    background-color: tomato;
-    border: none;
-    border-radius: 10px;
-    color: teal;
-  }
-  .arrowBox {
-    display: flex;
-    justify-content: space-around;
-    margin: 5px;
-    /* align-items: center; */
-    width: 75vw;
-    /* height: 400px; */
-  }
-  /* #arrowImg {
-    width: 60vw;
-    position: absolute;
-    top: 60vw;
-  } */
-}
+
 /* buttons */
 /* ------------start button--------------- */
 #start-button {
-  font-size: 4vw;
+  font-size: 7vw;
   font-weight: bolder;
   background-color: transparent;
   color: navy;
   border: none;
-  cursor: pointer;
   position: absolute;
-  top: 2vw;
-  left: 45vw;
+  top: 20vw;
+  left: 42vw;
 }
 #start-button:hover {
   color: rgb(11, 155, 11);
@@ -158,5 +132,169 @@ canvas {
   border: none;
 }
 
-@media (max-width: 460px) {
+@media (min-width: 501px) {
+  #arrowButtonsDiv {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/snake-gif.gif) no-repeat -33vw;
+    background-size: cover;
+    height: 100vw;
+  }
+  /* -------------------- */
+  /* ---------font image------------- */
+  body img {
+    width: 0%;
+  }
+  /* -------canvas -----------*/
+  canvas {
+    background: teal;
+    border: 3px solid #000;
+    border-radius: 10px;
+    width: 95vw;
+    height: 75vw;
+    margin-top: 18vw;
+  }
+  /* #canvas-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
+
+  /* buttons */
+  /* ------------start button--------------- */
+  #start-button {
+    font-size: 55px;
+    font-weight: bolder;
+    background-color: transparent;
+    color: navy;
+    border: none;
+    position: absolute;
+    top: 20vw;
+    left: 35vw;
+  }
+  #start-button:hover {
+    color: rgb(11, 155, 11);
+    cursor: pointer;
+  }
+  /*----------------- canvas buttons------------- */
+  #canvasButtons {
+    display: flex;
+    width: 95vw;
+    height: 0px;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 12vw;
+  }
+
+  #restart-button {
+    color: rgb(67, 73, 69);
+    font-size: 4vw;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+  }
+  #msg-button {
+    color: red;
+    font-size: 3vw;
+    background-color: transparent;
+    border: none;
+  }
+  #exit-button {
+    color: rgb(67, 73, 69);
+    font-size: 4vw;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+  }
+  #restart-button:hover {
+    color: #0f0;
+  }
+  #exit-button:hover {
+    color: red;
+  }
+
+  /* class display-none */
+  .display-none {
+    display: none;
+  }
+  /* players div */
+  #players {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 2vw;
+    left: 0vw;
+  }
+  #players div {
+    background-color: rgb(17, 15, 15, 0.2);
+  }
+  .flip-players {
+    flex-direction: row-reverse;
+  }
+  /* players input */
+  #player1 {
+    color: #ff851b;
+  }
+  #player2 {
+    color: #ff4136;
+  }
+  .name {
+    font-family: monospace;
+    text-align: center;
+    width: 30vw;
+    height: 6vw;
+    font-size: 4vw;
+    background-color: transparent;
+    border: none;
+  }
+  /* Score buttons */
+  #score1 {
+    color: #ff851b;
+  }
+  #score2 {
+    color: #ff4136;
+  }
+  .score {
+    text-align: center;
+    padding: 0 3vw 0 1vw;
+    /* height: 4vw; */
+    font-size: 4vw;
+    background-color: transparent;
+    border: none;
+  }
+
+  /* -------------------- */
+
+  .arrowButtons {
+    padding: 20px 40px;
+    font-size: 20px;
+    background-color: tomato;
+    border: none;
+    border-radius: 10px;
+    color: teal;
+  }
+  .arrowBox {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+    align-items: center;
+    width: 75vw;
+    /* height: 400px; */
+    /* #arrowImg {
+      width: 60vw;
+      position: absolute;
+      top: 60vw;
+    } */
+  }
 }
