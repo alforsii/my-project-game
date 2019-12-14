@@ -57,7 +57,7 @@ class Player extends Snake {
     });
   }
   mobileRemote() {
-    document.onclick = event => {
+    document.addEventListener('touchstart', event => {
       const key = event.target.id;
       event.preventDefault();
       if (this.state) {
@@ -79,6 +79,6 @@ class Player extends Snake {
           this.sound.moveSound.play();
         }
       }
-    };
+    });
   }
 }
