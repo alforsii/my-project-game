@@ -31,10 +31,10 @@ window.addEventListener('load', () => {
   right.setAttribute('id', 'right');
   up.setAttribute('id', 'up');
   down.setAttribute('id', 'down');
-  up.innerText = '_UP_';
-  left.innerText = 'LEFT';
-  right.innerText = 'RIGHT';
-  down.innerText = 'DOWN';
+  // up.innerText = '';
+  // left.innerText = 'LEFT';
+  // right.innerText = 'RIGHT';
+  // down.innerText = 'DOWN';
 
   // // All click event buttons.
   document.onclick = event => {
