@@ -12,6 +12,7 @@ class Game {
     };
     this.playersPositions = {
       p1Pos: [
+        //player-1 position
         {
           x: 19 * this.box,
           y: 10 * this.box,
@@ -20,6 +21,7 @@ class Game {
         },
       ],
       p2Pos: [
+        //player-2 position
         {
           x: 9 * this.box,
           y: 10 * this.box,
@@ -28,8 +30,8 @@ class Game {
         },
       ],
     };
-    this.player1Name = document.getElementById('player1');
-    this.player2Name = document.getElementById('player2');
+    this.player1Name = document.getElementById('player1'); //player-1 input
+    this.player2Name = document.getElementById('player2'); //player-2 input
     this.player1 = new Player(this, this.playersPositions.p1Pos, '#FF851B');
     this.player2 = new Player(this, this.playersPositions.p2Pos, '#FF4136');
     this.food = new Food(this, this.pos.x, this.pos.y, this.box, this.box);
@@ -39,7 +41,6 @@ class Game {
     this.canvasButtons = undefined;
     this.restartBtn = undefined;
     this.exitBtn = undefined;
-    // this.scoreBtn;
   }
   // -------------------------startTheGame()-------------------------
   startTheGame() {
@@ -65,7 +66,7 @@ class Game {
   }
   // //------------------------- drawGround()-------------------------
   drawGround() {
-    // //----Draw background----- // //
+    // //----Draw background-----
     for (let x = 1; x < 29; x++) {
       for (let y = 2; y < 20; y++) {
         // // all blue boxes.
@@ -84,21 +85,24 @@ class Game {
     //game border
     this.ctx.strokeStyle = '#203447s';
     this.ctx.strokeRect(this.box, 2 * this.box, 28 * this.box, 18 * this.box);
-    //-----------Display score update------------
+    //--Display score update--
+    //setTimeout just for score to catch the coin sound as a delay that for 500ms too to separate eat sound from score sound.
     setTimeout(() => {
       if (this.player1Name.value) {
+        //score1 is direct id name of a span for for score without creating reference
         score1.innerHTML = `${this.player1.score}`;
       }
       if (this.player2Name.value) {
+        //score2 also is direct id name of a span for for score without creating reference
         score2.innerHTML = `${this.player2.score}`;
       }
     }, 500);
   }
-  // //-------------------------clear()----------------------------------- // //
+  // //-------------------------clear()-------------------------------------
   clear() {
     this.ctx.clearRect(0, 0, this.width, this.height);
   }
-  // //-------------------------gameOver()---------------------------------// //
+  // //-------------------------gameOver()----------------------------------
   gameOver() {
     this.clear();
     // //--------Display game over image-------------------------
@@ -107,8 +111,8 @@ class Game {
     //create score button instead of canvas fillText and two other buttons
     //to avoid positioning if text width changes
     //we add score button inside canvasButtons which already flexed with space-around
-    const scoreText = document.createElement('span');
-    scoreText.setAttribute('id', 'score-button');
+    const winnerMsg = document.createElement('span');
+    winnerMsg.setAttribute('id', 'msg-button');
     //create restart button
     this.restartBtn = document.createElement('button');
     this.restartBtn.setAttribute('id', 'restart-button');
@@ -121,22 +125,25 @@ class Game {
     // to avoid create double buttons when both players have collision the same time.
     if (!canvasButtons.innerHTML.includes('button')) {
       canvasButtons.appendChild(this.restartBtn);
-      canvasButtons.appendChild(scoreText); //create in the middle
+      canvasButtons.appendChild(winnerMsg); //create in the middle
       canvasButtons.appendChild(this.exitBtn);
     }
-    //check status win
-    setTimeout(() => {
-      if (this.player1.score > this.player2.score) {
-        scoreText.innerHTML = `${this.player1Name.value} you are winner!`;
-      } else if (this.player1.score < this.player2.score) {
-        scoreText.innerHTML = `${this.player2Name.value} you are winner!`;
-      } else {
-        scoreText.innerHTML = `It's a draw!`;
-      }
-    }, 500);
+    //check win/lose status
+    if (this.player1Name.value && this.player2Name.value) {
+      setTimeout(() => {
+        if (this.player1.score > this.player2.score) {
+          winnerMsg.innerHTML = `${this.player1Name.value} you are winner!`;
+        } else if (this.player1.score < this.player2.score) {
+          winnerMsg.innerHTML = `${this.player2Name.value} you are winner!`;
+        } else {
+          winnerMsg.innerHTML = `It's a draw!`;
+        }
+      }, 500);
+    } else {
+    }
   }
 
-  //set both players collision
+  //------------set both players collision------------------------------------
   playersCollision() {
     let p1 = this.player1.snakeRoute;
     let p2 = this.player2.snakeRoute;
@@ -151,25 +158,4 @@ class Game {
       }
     }
   }
-
-  //switch colors depending on player score.
-  // scoreColors() {
-  //   if (this.score === 0) this.scoreColor = '#f00'; //red
-  //   if (this.score > 0) this.scoreColor = '#fff'; //white
-  //   if (this.score > 10) this.scoreColor = '#ff0'; //yellow
-  //   if (this.score > 20) this.scoreColor = 'orange'; //
-  //   if (this.score > 30) this.scoreColor = '#f00'; //red
-  //   if (this.score > 40) this.scoreColor = '#green'; //green
-
-  //   if (this.score % 10 === 0 && this.score > 0) {
-  //     this.scoreColor = '#fff';
-  //     this.ctx.fillStyle = this.scoreColor;
-  //     this.ctx.font = '35px Arial';
-  //     this.ctx.fillText(
-  //       `Congrats, you earned ${this.score} points`,
-  //       this.width / 2 - 220,
-  //       this.height / 2
-  //     );
-  //   }
-  // }
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Snake</title>
     <link rel="stylesheet" href="./styles/style.css" />
-
+    <!--  scripts -->
     <script src="./js/sounds.js"></script>
     <script src="./js/snakeFood.js"></script>
     <script src="./js/game.js"></script>
@@ -15,26 +15,25 @@
     <script src="./js/init.js"></script>
   </head>
   <body>
+    <!-- --------My canvas Div------------------------- -->
     <div id="canvas-div">
       <div id="canvasButtons"></div>
       <canvas id="my-canvas" width="900" height="630"></canvas>
     </div>
-
+    <!----------- My main font image and start button ------>
     <img src="./img/snake-gif.gif" alt="" />
-
-    <div id="start">
-      <button id="start-button" type="submit">Start</button>
-
-      <div id="players">
-        <div id="player1div">
-          <input id="player1" class="name" type="text" placeholder="player-1" />
-          <span id="score1" class="score" type="text"></span>
-        </div>
-
-        <div id="player2div">
-          <input id="player2" class="name" type="text" placeholder="player-2" />
-          <span id="score2" class="score" type="text"></span>
-        </div>
+    <button id="start-button" type="submit">Start</button>
+    <!-- ---------My players Div-------------------------- -->
+    <div id="players">
+      <!-- player-1 -->
+      <div id="player1div">
+        <input id="player1" class="name" type="text" placeholder="player-1" />
+        <span id="score1" class="score" type="text"></span>
+      </div>
+      <!-- player-2 -->
+      <div id="player2div">
+        <input id="player2" class="name" type="text" placeholder="player-2" />
+        <span id="score2" class="score" type="text"></span>
       </div>
     </div>
   </body>

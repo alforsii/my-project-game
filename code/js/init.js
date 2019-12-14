@@ -4,8 +4,6 @@ window.addEventListener('load', () => {
   const fontImg = document.querySelector('body img');
   const start = document.getElementById('start-button');
   const playersDiv = document.getElementById('players');
-  // const canvasDiv = document.getElementById('canvas-div');
-  // canvasDiv.remove();
   newGame.canvas.classList.add('display-none'); //
   score1.classList.add('display-none');
   score2.classList.add('display-none');

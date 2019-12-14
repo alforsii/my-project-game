@@ -1,10 +1,10 @@
 class Snake {
   constructor(game, pos, color) {
-    this.game = game;
-    this.sound = new Sound();
-    this.snakeRoute = pos;
-    this.color = color;
-    this.state = false;
+    this.game = game; // access/path to the Game class.
+    this.sound = new Sound(); // all my sounds
+    this.snakeRoute = pos; //snake initial position and all other after game start.
+    this.color = color; //the snake color
+    this.state = false; //I'm using this to control the snakes/players to activate/deactivate the player also to control the sound activate when playing, otherwise deactivate.
     this.dir = undefined; //this is snakes direction, to keep track of snakes direction to avoid going reverse while in motion.
   }
   // //-------------------------drawSnake()-------------------------

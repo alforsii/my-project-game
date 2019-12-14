@@ -11,8 +11,6 @@ body img {
 /* -------canvas -----------*/
 canvas {
   background: teal;
-  /* display: block; */
-  /* margin: 0 auto; */
   border: 3px solid #000;
   border-radius: 10px;
   width: 85vw;
@@ -28,8 +26,6 @@ canvas {
 /* ------------start button--------------- */
 #start-button {
   font-size: 4vw;
-  /* width: 200px; */
-  /* height: 0; */
   font-weight: bolder;
   background-color: transparent;
   color: navy;
@@ -59,14 +55,12 @@ canvas {
   font-size: 4vw;
   background-color: transparent;
   cursor: pointer;
-  /* padding: 5px 20px; */
   border: none;
 }
-#score-button {
+#msg-button {
   color: red;
   font-size: 3vw;
   background-color: transparent;
-  /* padding: 5px 20px; */
   border: none;
 }
 #exit-button {
@@ -74,7 +68,6 @@ canvas {
   font-size: 4vw;
   background-color: transparent;
   cursor: pointer;
-  /* padding: 5px 20px; */
   border: none;
 }
 #restart-button:hover {
@@ -88,18 +81,9 @@ canvas {
 .display-none {
   display: none;
 }
-
-/* #start {
-  font-family: monospace;
-  display: flex;
-  align-items: center;
-  flex-direction: column-reverse;
-  position: absolute;
-} */
-
+/* players div */
 #players {
   width: 75vw;
-  /* height: 0; */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -108,14 +92,12 @@ canvas {
   left: 12vw;
 }
 #players div {
-  /* position: relative; */
-  /* height: 0; */
-  /* top: -28vw; */
   background-color: rgb(17, 15, 15, 0.2);
 }
 .flip-players {
   flex-direction: row-reverse;
 }
+/* players input */
 #player1 {
   color: #ff851b;
 }
@@ -131,6 +113,7 @@ canvas {
   background-color: transparent;
   border: none;
 }
+/* Score buttons */
 #score1 {
   color: #ff851b;
 }
