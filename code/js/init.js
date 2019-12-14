@@ -4,7 +4,9 @@ window.addEventListener('load', () => {
   const fontImg = document.querySelector('body img');
   const start = document.getElementById('start-button');
   const playersDiv = document.getElementById('players');
-  newGame.canvas.classList.add('display-none');
+  // const canvasDiv = document.getElementById('canvas-div');
+  // canvasDiv.remove();
+  newGame.canvas.classList.add('display-none'); //
   score1.classList.add('display-none');
   score2.classList.add('display-none');
 
@@ -17,7 +19,7 @@ window.addEventListener('load', () => {
         //Activate canvas, hide main and start the game
         if (newGame.player1Name.value || newGame.player2Name.value) {
           //this just reverse names when game starts to match keyboard.
-          playersDiv.classList.add('players');
+          playersDiv.classList.add('flip-players');
           score1.classList.remove('display-none');
           score2.classList.remove('display-none');
           newGame.canvas.classList.remove('display-none');

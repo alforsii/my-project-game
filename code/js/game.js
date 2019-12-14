@@ -87,10 +87,10 @@ class Game {
     //-----------Display score update------------
     setTimeout(() => {
       if (this.player1Name.value) {
-        score1.value = `${this.player1.score}`;
+        score1.innerHTML = `${this.player1.score}`;
       }
       if (this.player2Name.value) {
-        score2.value = `${this.player2.score}`;
+        score2.innerHTML = `${this.player2.score}`;
       }
     }, 500);
   }

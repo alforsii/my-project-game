@@ -11,10 +11,12 @@ body img {
 /* -------canvas -----------*/
 canvas {
   background: teal;
-  display: block;
-  margin: 0 auto;
+  /* display: block; */
+  /* margin: 0 auto; */
   border: 3px solid #000;
   border-radius: 10px;
+  width: 85vw;
+  margin-top: 4vw;
 }
 #canvas-div {
   display: flex;
@@ -25,13 +27,17 @@ canvas {
 /* buttons */
 /* ------------start button--------------- */
 #start-button {
-  font-size: 50px;
-  width: 200px;
+  font-size: 4vw;
+  /* width: 200px; */
+  /* height: 0; */
   font-weight: bolder;
   background-color: transparent;
   color: navy;
   border: none;
   cursor: pointer;
+  position: absolute;
+  top: 2vw;
+  left: 45vw;
 }
 #start-button:hover {
   color: rgb(11, 155, 11);
@@ -40,35 +46,35 @@ canvas {
 /*----------------- canvas buttons------------- */
 #canvasButtons {
   display: flex;
-  width: 900px; /*canvas width*/
+  width: 75vw;
   height: 0px;
   justify-content: space-around;
   align-items: center;
   position: relative;
-  top: 105px;
+  top: 12vw;
 }
 
 #restart-button {
   color: rgb(67, 73, 69);
-  font-size: 40px;
+  font-size: 4vw;
   background-color: transparent;
   cursor: pointer;
-  padding: 5px 20px;
+  /* padding: 5px 20px; */
   border: none;
 }
 #score-button {
   color: red;
-  font-size: 40px;
+  font-size: 3vw;
   background-color: transparent;
-  padding: 5px 20px;
+  /* padding: 5px 20px; */
   border: none;
 }
 #exit-button {
   color: rgb(67, 73, 69);
-  font-size: 40px;
+  font-size: 4vw;
   background-color: transparent;
   cursor: pointer;
-  padding: 5px 20px;
+  /* padding: 5px 20px; */
   border: none;
 }
 #restart-button:hover {
@@ -83,26 +89,31 @@ canvas {
   display: none;
 }
 
-#start {
+/* #start {
   font-family: monospace;
-  width: 900px;
   display: flex;
   align-items: center;
   flex-direction: column-reverse;
   position: absolute;
-}
+} */
 
 #players {
-  width: 900px;
+  width: 75vw;
+  /* height: 0; */
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 6vw;
+  left: 12vw;
 }
 #players div {
-  position: relative;
-  top: -285px;
+  /* position: relative; */
+  /* height: 0; */
+  /* top: -28vw; */
   background-color: rgb(17, 15, 15, 0.2);
 }
-.players {
+.flip-players {
   flex-direction: row-reverse;
 }
 #player1 {
@@ -114,9 +125,9 @@ canvas {
 .name {
   font-family: monospace;
   text-align: center;
-  width: 200px;
-  height: 40px;
-  font-size: 22px;
+  width: 16vw;
+  height: 3.5vw;
+  font-size: 2vw;
   background-color: transparent;
   border: none;
 }
@@ -128,9 +139,9 @@ canvas {
 }
 .score {
   text-align: center;
-  width: 100px;
-  height: 40px;
-  font-size: 22px;
+  padding: 0 3vw 0 1vw;
+  height: 4vw;
+  font-size: 2vw;
   background-color: transparent;
   border: none;
 }
