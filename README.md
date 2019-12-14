@@ -28,11 +28,11 @@
   we gonna make our snake width and height same size as this boxes in the canvas
   (see the image below).
 
-- There 2 options. Ether we can use image like in below or we can draw our
-  custom grid. I did custom, so if I need I can change my grid length on any
-  axes, as well as it's boxes width and height. For example, 20x20 or 20x40.
-  Mine is 30x21. From top I left 2 box size and all other sides 1 box size to
-  make it look nice. So my snake will be running in 28x18(x=28,y=18).
+- There 2 options. Either we can use image or we can draw our custom grid. I did
+  custom, so if I need I can change my grid length on any axes, as well as it's
+  boxes width and height. For example, 20x20 or 20x40. Mine is 30x21. From top I
+  left 2 box size and all other sides 1 box size to make it look nice. So my
+  snake will be running in 28x18(x=28,y=18).
 - my snake width=height=eachBox=30.
 
 ![](./code/img/ground.png)
