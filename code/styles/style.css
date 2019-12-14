@@ -159,7 +159,7 @@ canvas {
     border-radius: 10px;
     width: 95vw;
     /* height: 65vw; */
-    margin-top: 20vw;
+    margin-top: 25vw;
   }
   /* #canvas-div {
     display: flex;
@@ -233,7 +233,7 @@ canvas {
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    top: 1vw;
+    top: 3vw;
     left: 0vw;
   }
   #players div {
