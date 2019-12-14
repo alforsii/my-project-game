@@ -52,6 +52,7 @@ class Game {
       if (this.player1Name.value && !this.player2Name.value) {
         this.player1.drawSnake();
         this.player1.remote1();
+        this.player1.mobileRemote();
       } else if (!this.player1Name.value && this.player2Name.value) {
         this.player2.drawSnake();
         this.player2.remote2();

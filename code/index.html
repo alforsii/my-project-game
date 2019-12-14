@@ -7,18 +7,23 @@
     <title>Snake</title>
     <link rel="stylesheet" href="./styles/style.css" />
     <!--  scripts -->
+    <script src="./js/init.js"></script>
     <script src="./js/sounds.js"></script>
     <script src="./js/snakeFood.js"></script>
     <script src="./js/game.js"></script>
     <script src="./js/snake.js"></script>
     <script src="./js/player.js"></script>
-    <script src="./js/init.js"></script>
   </head>
   <body>
     <!-- --------My canvas Div------------------------- -->
-    <div id="canvas-div">
+    <div id="canvasDiv">
       <div id="canvasButtons"></div>
       <canvas id="my-canvas" width="900" height="630"></canvas>
+      <div id="arrowButtonsDiv">
+        <div id="top" class="arrowBox"></div>
+        <div id="leftRight" class="arrowBox"></div>
+        <div id="bottom" class="arrowBox"></div>
+      </div>
     </div>
     <!----------- My main font image and start button ------>
     <img src="./img/snake-gif.gif" alt="" />

@@ -56,4 +56,30 @@ class Player extends Snake {
       }
     });
   }
+  mobileRemote() {
+    document.addEventListener('onclick', event => {
+      const key = event;
+      console.log('Output for: Player -> mobileRemote -> key', key);
+      event.preventDefault();
+      if (this.state) {
+        if (key === 65 && this.dir !== 'RIGHT') {
+          //we go left if we're not going right
+          this.dir = 'LEFT';
+          this.sound.moveSound.play();
+        } else if (key === 87 && this.dir !== 'DOWN') {
+          //we go up if we're not going down
+          this.dir = 'UP';
+          this.sound.moveSound.play();
+        } else if (key === 68 && this.dir !== 'LEFT') {
+          //we go right only if we're not going left
+          this.dir = 'RIGHT';
+          this.sound.moveSound.play();
+        } else if (key === 88 && this.dir !== 'UP') {
+          //and we go down if we're not going up.
+          this.dir = 'DOWN';
+          this.sound.moveSound.play();
+        }
+      }
+    });
+  }
 }

@@ -13,14 +13,43 @@ canvas {
   background: teal;
   border: 3px solid #000;
   border-radius: 10px;
-  width: 85vw;
+  width: 75vw;
+  height: 55vw;
   margin-top: 4vw;
 }
-#canvas-div {
+/* #canvas-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+} */
+@media (min-width: 501px) {
+  #arrowButtonsDiv {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  .arrowButtons {
+    padding: 20px 40px;
+    font-size: 20px;
+    background-color: tomato;
+    border: none;
+    border-radius: 10px;
+    color: teal;
+  }
+  .arrowBox {
+    display: flex;
+    justify-content: space-around;
+    margin: 5px;
+    /* align-items: center; */
+    width: 75vw;
+    /* height: 400px; */
+  }
+  /* #arrowImg {
+    width: 60vw;
+    position: absolute;
+    top: 60vw;
+  } */
 }
 /* buttons */
 /* ------------start button--------------- */
@@ -127,4 +156,7 @@ canvas {
   font-size: 2vw;
   background-color: transparent;
   border: none;
+}
+
+@media (max-width: 460px) {
 }

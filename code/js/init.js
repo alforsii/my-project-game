@@ -7,6 +7,34 @@ window.addEventListener('load', () => {
   newGame.canvas.classList.add('display-none'); //
   score1.classList.add('display-none');
   score2.classList.add('display-none');
+  //---------for mobile phone arrow remote control ---------
+  //main div
+  arrowButtonsDiv.classList.add('display-none');
+  //divs
+  const top = document.getElementById('top');
+  const leftRight = document.getElementById('leftRight');
+  const bottom = document.getElementById('bottom');
+  //buttons
+  const left = document.createElement('button');
+  const up = document.createElement('button');
+  const right = document.createElement('button');
+  const down = document.createElement('button');
+  top.append(up);
+  leftRight.append(left);
+  leftRight.append(right);
+  bottom.append(down);
+  left.classList.add('arrowButtons');
+  right.classList.add('arrowButtons');
+  up.classList.add('arrowButtons');
+  down.classList.add('arrowButtons');
+  left.setAttribute('id', 'left');
+  right.setAttribute('id', 'right');
+  up.setAttribute('id', 'up');
+  down.setAttribute('id', 'down');
+  up.innerText = '_UP_';
+  left.innerText = 'LEFT';
+  right.innerText = 'RIGHT';
+  down.innerText = 'DOWN';
 
   // // All click event buttons.
   document.onclick = event => {
@@ -16,6 +44,7 @@ window.addEventListener('load', () => {
       case 'start-button':
         //Activate canvas, hide main and start the game
         if (newGame.player1Name.value || newGame.player2Name.value) {
+          arrowButtonsDiv.classList.remove('display-none');
           //this just reverse names when game starts to match keyboard.
           playersDiv.classList.add('flip-players');
           score1.classList.remove('display-none');
