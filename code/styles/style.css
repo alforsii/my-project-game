@@ -143,9 +143,9 @@ canvas {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    background: url(../img/snake-gif.gif) no-repeat -33vw;
+    background: url(../img/snake-gif.gif) -40vw 30px;
     background-size: cover;
-    height: 100vw;
+    height: 109vw;
   }
   /* -------------------- */
   /* ---------font image------------- */
@@ -159,7 +159,7 @@ canvas {
     border-radius: 10px;
     width: 95vw;
     /* height: 65vw; */
-    margin-top: 25vw;
+    margin-top: 13vw;
   }
   /* #canvas-div {
     display: flex;
@@ -177,7 +177,7 @@ canvas {
     color: rgb(11, 152, 199);
     border: none;
     position: absolute;
-    top: 20vw;
+    top: 25vw;
     left: 35vw;
   }
   #start-button:hover {
@@ -192,7 +192,7 @@ canvas {
     justify-content: space-around;
     align-items: center;
     position: relative;
-    top: 30vw;
+    top: 26vw;
   }
 
   #restart-button {
@@ -233,7 +233,7 @@ canvas {
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    top: 3vw;
+    top: 12vw;
     left: 0vw;
   }
   #players div {
@@ -276,6 +276,9 @@ canvas {
 
   /* -------------------- */
 
+  #arrowButtonsDiv {
+    background-color: brown;
+  }
   .arrowButtons {
     padding: 45px 40px;
     border: 1px solid rgb(8, 8, 109);
@@ -285,12 +288,12 @@ canvas {
   .arrowBox {
     display: flex;
     justify-content: space-around;
-    margin: 5px;
+    /* margin: 5px; */
     /* align-items: center; */
     width: 95vw;
   }
   #leftRight {
-    /* width: 200px; */
+    justify-content: center;
   }
   #left {
     background: url(../img/arrow-key.png) no-repeat -5px -55px;

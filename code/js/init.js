@@ -21,8 +21,8 @@ window.addEventListener('load', () => {
   const down = document.createElement('button');
   top.append(up);
   leftRight.append(left);
+  leftRight.append(down);
   leftRight.append(right);
-  bottom.append(down);
   left.classList.add('arrowButtons');
   right.classList.add('arrowButtons');
   up.classList.add('arrowButtons');
