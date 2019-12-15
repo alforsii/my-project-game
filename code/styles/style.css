@@ -306,7 +306,7 @@ canvas {
   }
   #canvasButtons {
     display: flex;
-    width: 95vw;
+    width: 85vw;
     height: 0px;
     justify-content: space-around;
     align-items: center;
@@ -378,7 +378,8 @@ canvas {
     padding: 40px 40px;
     opacity: 0.4;
     position: absolute;
-    top: -15vw;
+    top: -10vw;
+    right: 10vw;
   }
   #right {
     background: url(../img/arrow-key.png) no-repeat -115px -55px;
@@ -394,7 +395,8 @@ canvas {
     padding: 40px 40px;
     opacity: 0.4;
     position: absolute;
-    bottom: 4vw;
+    bottom: 10vw;
+    right: 10vw;
   }
 }
 
