@@ -304,6 +304,16 @@ canvas {
     height: 60vw;
     margin-top: 13vw;
   }
+  #start-button {
+    font-size: 12vw;
+    font-weight: bolder;
+    background-color: transparent;
+    color: rgb(11, 152, 199);
+    border: none;
+    position: absolute;
+    top: 20vw;
+    left: 35vw;
+  }
   #canvasButtons {
     display: flex;
     width: 85vw;
@@ -319,21 +329,21 @@ canvas {
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    top: 4vw;
+    top: 15vw;
     left: 0vw;
   }
   #player1 {
     color: #ff851b;
-    width: 40vw;
-    height: 7vw;
-    font-size: 6vw;
+    width: 30vw;
+    height: 5vw;
+    font-size: 4vw;
   }
   #player2div {
     display: none;
   }
   #score1 {
     color: #ff851b;
-    font-size: 6vw;
+    font-size: 4vw;
   }
   .name {
     font-family: monospace;
@@ -405,52 +415,3 @@ canvas {
     display: none;
   }
 }
-
-@media (min-width: 575px) {
-}
-/* @media (min-width: 501px) and (max-width: 900px) {
-  body {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    background: url(../img/snake-gif.gif) no-repeat 0vw 70px;
-    background-size: cover;
-    background-color: rgba(82, 78, 78, 0.514);
-  }
-  body img {
-    width: 0%;
-  }
-  canvas {
-    background: teal;
-    border: 3px solid #000;
-    border-radius: 10px;
-    width: 85vw;
-    margin-top: 3vw;
-  }
-  #players {
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    top: 5vw;
-    left: 0vw;
-  }
-  .name {
-    font-family: monospace;
-    text-align: center;
-    width: 20vw;
-    height: 4vw;
-    font-size: 3vw;
-    background-color: transparent;
-    border: none;
-  }
-  .score {
-    text-align: center;
-    padding: 0 3vw 0 1vw;
-    font-size: 3vw;
-    background-color: transparent;
-    border: none;
-  }
-} */
