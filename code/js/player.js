@@ -34,6 +34,7 @@ class Player extends Snake {
   remote2() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
+      console.log('Output for: Player -> key', key);
       event.preventDefault();
       if (this.state) {
         if (key === 65 && this.dir !== 'RIGHT') {
@@ -48,7 +49,7 @@ class Player extends Snake {
           //we go right only if we're not going left
           this.dir = 'RIGHT';
           this.sound.moveSound.play();
-        } else if (key === 88 && this.dir !== 'UP') {
+        } else if (key === 83 && this.dir !== 'UP') {
           //and we go down if we're not going up.
           this.dir = 'DOWN';
           this.sound.moveSound.play();

@@ -1,33 +1,70 @@
 body {
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
+  /* flex-direction: column-reverse; */
+  justify-content: space-around;
   align-items: center;
-  /* background: url(../img/snake-gif.gif) no-repeat 0vw -5vw;
-    background-size: cover; */
+  width: 108vw;
+  background: url(../img/snake-gif.gif) no-repeat;
+  background-size: cover;
 }
 /* ---------font image------------- */
-@media (min-width: 575px) {
+/* @media (min-width: 575px) {
   body img {
     width: 100%;
   }
-}
+} */
 /* -------canvas -----------*/
 canvas {
   background: teal;
   border: 3px solid #000;
   border-radius: 10px;
-  width: 95vw;
-  /* height: 55vw; */
-  margin-top: 4vw;
+  width: 70vw;
+  height: 48vw;
+  max-height: 630px;
 }
-#canvas-div {
+/* #canvas-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+} */
+aside {
+  background: url(../img/arrow-key.png) 0px 5px;
+  background-size: 100px;
+  height: 100px;
 }
-
+#leftSide,
+#rightSide {
+  width: 100px;
+}
+#leftSide span,
+#rightSide span {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#leftSide {
+  float: left;
+  position: absolute;
+  top: 15vw;
+  left: 5vw;
+}
+#rightSide {
+  float: right;
+  position: absolute;
+  top: 15vw;
+  right: 5vw;
+}
+#leftSide button,
+#rightSide button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 10px 30px;
+  opacity: 0.5;
+}
 /* buttons */
 /* ------------start button--------------- */
 #start-button {
@@ -47,7 +84,7 @@ canvas {
 /*----------------- canvas buttons------------- */
 #canvasButtons {
   display: flex;
-  width: 75vw;
+  width: 80vw;
   height: 0px;
   justify-content: space-around;
   align-items: center;
@@ -88,16 +125,16 @@ canvas {
 }
 /* players div */
 #players {
-  width: 75vw;
+  width: 70vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: absolute;
-  top: 6vw;
+  top: 1vw;
   left: 12vw;
 }
 #players div {
-  background-color: rgb(17, 15, 15, 0.2);
+  /* background-color: rgb(17, 15, 15, 0.2); */
 }
 .flip-players {
   flex-direction: row-reverse;
@@ -129,11 +166,11 @@ canvas {
   text-align: center;
   padding: 0 3vw 0 1vw;
   height: 4vw;
-  font-size: 2vw;
+  font-size: 3vw;
   background-color: transparent;
   border: none;
 }
-
+/* resize max 575px */
 @media (max-width: 575px) {
   body {
     display: flex;
@@ -146,9 +183,9 @@ canvas {
   }
   /* -------------------- */
   /* ---------font image------------- */
-  body img {
+  /* body img {
     width: 0%;
-  }
+  } */
   /* -------canvas -----------*/
   canvas {
     background: teal;
@@ -159,16 +196,6 @@ canvas {
     margin-top: 13vw;
   }
 
-  /* @media (min-width: 475px) and (max-width: 575px) {
-    canvas {
-      background: teal;
-      border: 3px solid #000;
-      border-radius: 10px;
-      width: 95vw;
-      height: 60vw;
-      margin-top: 13vw;
-    }
-  } */
   #canvas-div {
     display: flex;
     flex-direction: column;
@@ -190,7 +217,7 @@ canvas {
   /*----------------- canvas buttons------------- */
   #canvasButtons {
     display: flex;
-    width: 95vw;
+    width: 80vw;
     height: 0px;
     justify-content: space-around;
     align-items: center;
@@ -250,14 +277,6 @@ canvas {
     background-color: transparent;
     border: none;
   }
-  /* .score {
-    text-align: center;
-    padding: 0 3vw 0 1vw;
-    height: 4vw;
-    font-size: 3vw;
-    background-color: transparent;
-    border: none;
-  } */
 
   /* -------------------- */
 
@@ -294,7 +313,7 @@ canvas {
     padding: 40px 40px;
   }
 }
-
+/* style for resize 475-675 */
 @media (min-width: 475px) and (max-width: 675px) {
   canvas {
     background: teal;
@@ -412,6 +431,12 @@ canvas {
 
 @media (min-width: 676px) {
   #arrowButtonsDiv {
+    display: none;
+  }
+}
+@media (max-width: 850px) {
+  #leftSide,
+  #rightSide {
     display: none;
   }
 }

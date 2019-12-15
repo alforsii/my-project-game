@@ -4,6 +4,9 @@ window.addEventListener('load', () => {
   const fontImg = document.querySelector('body img');
   const start = document.getElementById('start-button');
   const playersDiv = document.getElementById('players');
+  sideBar.classList.add('display-none');
+  // const arrowImg = document.getElementById('arrow-img');
+  // arrowImg.classList.add('display-none');
   newGame.canvas.classList.add('display-none'); //
   score1.classList.add('display-none');
   score2.classList.add('display-none');
@@ -13,7 +16,7 @@ window.addEventListener('load', () => {
   //divs
   const top = document.getElementById('top');
   const leftRight = document.getElementById('leftRight');
-  const bottom = document.getElementById('bottom');
+  // const bottom = document.getElementById('bottom');
   //buttons
   const left = document.createElement('button');
   const up = document.createElement('button');
@@ -31,12 +34,8 @@ window.addEventListener('load', () => {
   right.setAttribute('id', 'right');
   up.setAttribute('id', 'up');
   down.setAttribute('id', 'down');
-  // up.innerText = '';
-  // left.innerText = 'LEFT';
-  // right.innerText = 'RIGHT';
-  // down.innerText = 'DOWN';
 
-  // // All click event buttons.
+  // ---------- All click event buttons--------------------
   document.onclick = event => {
     let btnID = event.target.id;
     switch (btnID) {
@@ -44,6 +43,7 @@ window.addEventListener('load', () => {
       case 'start-button':
         //Activate canvas, hide main and start the game
         if (newGame.player1Name.value || newGame.player2Name.value) {
+          sideBar.classList.remove('display-none');
           arrowButtonsDiv.classList.remove('display-none');
           //this just reverse names when game starts to match keyboard.
           playersDiv.classList.add('flip-players');
@@ -51,7 +51,7 @@ window.addEventListener('load', () => {
           score2.classList.remove('display-none');
           newGame.canvas.classList.remove('display-none');
           document.body.style.background = '#203447';
-          fontImg.classList.add('display-none');
+          // fontImg.classList.add('display-none');
           start.classList.add('display-none');
           newGame.startTheGame();
         }
