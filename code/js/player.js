@@ -59,7 +59,7 @@ class Player extends Snake {
   mobileRemote() {
     document.addEventListener('touchstart', event => {
       const key = event.target.id;
-      event.preventDefault();
+      // event.preventDefault();
       if (this.state) {
         if (key === 'left' && this.dir !== 'RIGHT') {
           //we go left if we're not going right

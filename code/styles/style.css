@@ -4,11 +4,14 @@ body {
   justify-content: center;
   align-items: center;
   /* background: url(../img/snake-gif.gif) no-repeat 0vw -5vw;
-  background-size: cover; */
+    background-size: cover; */
 }
 /* ---------font image------------- */
-body img {
-  width: 100vw;
+@media (min-width: 575px) {
+  body img {
+    width: 100%;
+    min-width: 900px;
+  }
 }
 /* -------canvas -----------*/
 canvas {
@@ -19,12 +22,12 @@ canvas {
   /* height: 55vw; */
   margin-top: 4vw;
 }
-/* #canvas-div {
+#canvas-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-} */
+}
 
 /* buttons */
 /* ------------start button--------------- */
@@ -132,20 +135,15 @@ canvas {
   border: none;
 }
 
-@media (min-width: 501px) {
-  #arrowButtonsDiv {
-    display: none;
-  }
-}
-@media (max-width: 500px) {
+@media (max-width: 575px) {
   body {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    background: url(../img/snake-gif.gif) -40vw 30px;
+    background: url(../img/snake-gif.gif) no-repeat 0vw 70px;
     background-size: cover;
-    height: 109vw;
+    background-color: rgba(82, 78, 78, 0.514);
   }
   /* -------------------- */
   /* ---------font image------------- */
@@ -158,31 +156,26 @@ canvas {
     border: 3px solid #000;
     border-radius: 10px;
     width: 95vw;
-    /* height: 65vw; */
+    height: 80vw;
     margin-top: 13vw;
   }
-  /* #canvas-div {
+  #canvas-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  } */
-
+  }
   /* buttons */
   /* ------------start button--------------- */
   #start-button {
-    font-size: 55px;
+    font-size: 12vw;
     font-weight: bolder;
     background-color: transparent;
     color: rgb(11, 152, 199);
     border: none;
     position: absolute;
-    top: 25vw;
+    top: 30vw;
     left: 35vw;
-  }
-  #start-button:hover {
-    color: rgb(11, 155, 11);
-    cursor: pointer;
   }
   /*----------------- canvas buttons------------- */
   #canvasButtons {
@@ -215,17 +208,6 @@ canvas {
     cursor: pointer;
     border: none;
   }
-  #restart-button:hover {
-    color: #0f0;
-  }
-  #exit-button:hover {
-    color: red;
-  }
-
-  /* class display-none */
-  .display-none {
-    display: none;
-  }
   /* players div */
   #players {
     width: 100vw;
@@ -233,21 +215,21 @@ canvas {
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    top: 12vw;
+    top: 4vw;
     left: 0vw;
   }
-  #players div {
-    background-color: rgb(17, 15, 15, 0.2);
-  }
-  .flip-players {
-    flex-direction: row-reverse;
-  }
-  /* players input */
   #player1 {
     color: #ff851b;
+    width: 40vw;
+    height: 7vw;
+    font-size: 6vw;
   }
-  #player2 {
-    color: #ff4136;
+  #player2div {
+    display: none;
+  }
+  #score1 {
+    color: #ff851b;
+    font-size: 6vw;
   }
   .name {
     font-family: monospace;
@@ -258,27 +240,17 @@ canvas {
     background-color: transparent;
     border: none;
   }
-  /* Score buttons */
-  #score1 {
-    color: #ff851b;
-  }
-  #score2 {
-    color: #ff4136;
-  }
-  .score {
+  /* .score {
     text-align: center;
     padding: 0 3vw 0 1vw;
-    /* height: 4vw; */
+    height: 4vw;
     font-size: 3vw;
     background-color: transparent;
     border: none;
-  }
+  } */
 
   /* -------------------- */
 
-  #arrowButtonsDiv {
-    background-color: brown;
-  }
   .arrowButtons {
     padding: 45px 40px;
     border: 1px solid rgb(8, 8, 109);
@@ -288,8 +260,6 @@ canvas {
   .arrowBox {
     display: flex;
     justify-content: space-around;
-    /* margin: 5px; */
-    /* align-items: center; */
     width: 95vw;
   }
   #leftRight {
@@ -314,13 +284,33 @@ canvas {
     padding: 40px 40px;
   }
 }
-@media (min-width: 501px) and (max-width: 900px) {
+
+@media (min-width: 575px) {
+  #arrowButtonsDiv {
+    display: none;
+  }
+}
+
+@media (min-width: 575px) {
+}
+/* @media (min-width: 501px) and (max-width: 900px) {
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/snake-gif.gif) no-repeat 0vw 70px;
+    background-size: cover;
+    background-color: rgba(82, 78, 78, 0.514);
+  }
+  body img {
+    width: 0%;
+  }
   canvas {
     background: teal;
     border: 3px solid #000;
     border-radius: 10px;
     width: 85vw;
-    /* height: 55vw; */
     margin-top: 3vw;
   }
   #players {
@@ -348,4 +338,4 @@ canvas {
     background-color: transparent;
     border: none;
   }
-}
+} */
