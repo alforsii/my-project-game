@@ -10,7 +10,6 @@ body {
 @media (min-width: 575px) {
   body img {
     width: 100%;
-    min-width: 900px;
   }
 }
 /* -------canvas -----------*/
@@ -18,7 +17,7 @@ canvas {
   background: teal;
   border: 3px solid #000;
   border-radius: 10px;
-  width: 85vw;
+  width: 95vw;
   /* height: 55vw; */
   margin-top: 4vw;
 }
@@ -159,6 +158,17 @@ canvas {
     height: 80vw;
     margin-top: 13vw;
   }
+
+  /* @media (min-width: 475px) and (max-width: 575px) {
+    canvas {
+      background: teal;
+      border: 3px solid #000;
+      border-radius: 10px;
+      width: 95vw;
+      height: 60vw;
+      margin-top: 13vw;
+    }
+  } */
   #canvas-div {
     display: flex;
     flex-direction: column;
@@ -285,7 +295,110 @@ canvas {
   }
 }
 
-@media (min-width: 575px) {
+@media (min-width: 475px) and (max-width: 675px) {
+  canvas {
+    background: teal;
+    border: 3px solid #000;
+    border-radius: 10px;
+    width: 95vw;
+    height: 60vw;
+    margin-top: 13vw;
+  }
+  #canvasButtons {
+    display: flex;
+    width: 95vw;
+    height: 0px;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 26vw;
+  }
+  #players {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 4vw;
+    left: 0vw;
+  }
+  #player1 {
+    color: #ff851b;
+    width: 40vw;
+    height: 7vw;
+    font-size: 6vw;
+  }
+  #player2div {
+    display: none;
+  }
+  #score1 {
+    color: #ff851b;
+    font-size: 6vw;
+  }
+  .name {
+    font-family: monospace;
+    text-align: center;
+    width: 20vw;
+    height: 5vw;
+    font-size: 3vw;
+    background-color: transparent;
+    border: none;
+  }
+  #arrowButtonsDiv {
+    position: absolute;
+    width: 100vw;
+    height: 50vw;
+    top: 30vw;
+  }
+  .arrowButtons {
+    padding: 45px 40px;
+    border: none;
+    border-radius: 30px;
+    color: teal;
+  }
+  .arrowBox {
+    display: flex;
+    justify-content: space-around;
+    width: 95vw;
+  }
+  #leftRight {
+    justify-content: center;
+  }
+  #left {
+    background: url(../img/arrow-key.png) no-repeat -5px -55px;
+    background-size: 200px;
+    opacity: 0.4;
+    position: absolute;
+    left: 0;
+    top: 7vw;
+  }
+  #up {
+    background: url(../img/arrow-key.png) no-repeat -60px 0px;
+    background-size: 200px;
+    padding: 40px 40px;
+    opacity: 0.4;
+    position: absolute;
+    top: -15vw;
+  }
+  #right {
+    background: url(../img/arrow-key.png) no-repeat -115px -55px;
+    background-size: 200px;
+    opacity: 0.4;
+    position: absolute;
+    right: 3vw;
+    top: 7vw;
+  }
+  #down {
+    background: url(../img/arrow-key.png) no-repeat -60px -115px;
+    background-size: 200px;
+    padding: 40px 40px;
+    opacity: 0.4;
+    position: absolute;
+    bottom: 4vw;
+  }
+}
+
+@media (min-width: 676px) {
   #arrowButtonsDiv {
     display: none;
   }
