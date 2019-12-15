@@ -3,7 +3,7 @@ body {
   /* flex-direction: column-reverse; */
   justify-content: space-around;
   align-items: center;
-  width: 108vw;
+  width: 100vw;
   background: url(../img/snake-gif.gif) no-repeat;
   background-size: cover;
 }
@@ -78,18 +78,18 @@ aside {
   left: 42vw;
 }
 #start-button:hover {
-  color: rgb(11, 155, 11);
+  color: #0f0;
   cursor: pointer;
 }
 /*----------------- canvas buttons------------- */
 #canvasButtons {
   display: flex;
-  width: 80vw;
+  width: 70vw;
   height: 0px;
   justify-content: space-around;
   align-items: center;
   position: relative;
-  top: 12vw;
+  top: 8vw;
 }
 
 #restart-button {
@@ -335,12 +335,12 @@ aside {
   }
   #canvasButtons {
     display: flex;
-    width: 85vw;
+    width: 80vw;
     height: 0px;
     justify-content: space-around;
     align-items: center;
     position: relative;
-    top: 26vw;
+    top: 24vw;
   }
   #players {
     width: 100vw;

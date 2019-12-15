@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
   //Create new game, references to font image and buttons.
   const newGame = new Game();
-  const fontImg = document.querySelector('body img');
+  // const fontImg = document.querySelector('body img');
   const start = document.getElementById('start-button');
   const playersDiv = document.getElementById('players');
   sideBar.classList.add('display-none');
@@ -61,11 +61,13 @@ window.addEventListener('load', () => {
         if (newGame.player1Name.value && !newGame.player2Name.value) {
           newGame.player1.state = true;
           player2div.remove();
+          leftSide.remove();
         }
         //Activate player2 only
         if (!newGame.player1Name.value && newGame.player2Name.value) {
           newGame.player2.state = true;
           player1div.remove();
+          rightSide.remove();
         }
         //Activate player1 and player2
         if (newGame.player1Name.value && newGame.player2Name.value) {
