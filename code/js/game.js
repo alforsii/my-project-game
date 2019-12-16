@@ -93,6 +93,8 @@ class Game {
           this.ctx.fillStyle = '#203447';
           this.ctx.fillRect(x * this.box, y * this.box, this.box, this.box);
         }
+        this.ctx.strokeStyle = '#0351f8';
+        this.ctx.strokeRect(this.box * x, this.box * y, this.box, this.box);
       }
     }
     //game border

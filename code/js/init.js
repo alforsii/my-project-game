@@ -20,7 +20,6 @@ window.addEventListener('load', () => {
           score1.classList.remove('display-none');
           score2.classList.remove('display-none');
           newGame.canvas.classList.remove('display-none');
-          document.body.style.background = '#203447';
           start.classList.add('display-none');
           newGame.startTheGame();
           levels.classList.add('display-none'); //this direct #levels from html
