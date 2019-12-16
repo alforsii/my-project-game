@@ -73,7 +73,6 @@ class Game {
         this.player1.remote1();
         this.player2.drawSnake();
         this.player2.remote2();
-        this.playersCollision();
       }
     }, this.timeSpeed);
   }
@@ -98,8 +97,8 @@ class Game {
       }
     }
     //game border
-    this.ctx.strokeStyle = '#203447s';
-    this.ctx.strokeRect(this.box, 2 * this.box, 28 * this.box, 18 * this.box);
+    // this.ctx.strokeStyle = '#203447s';
+    // this.ctx.strokeRect(this.box, 2 * this.box, 28 * this.box, 18 * this.box);
     //--Display score update--
     //setTimeout just for score to catch the coin sound as I delay that for 500ms too, to separate eat sound from score sound.
     setTimeout(() => {
@@ -111,7 +110,7 @@ class Game {
         //score2 also is direct id name of a span for score without creating reference
         score2.innerHTML = `${this.player2.score}`;
       }
-    }, 500);
+    }, 300);
   }
   // //-------------------------clear()-------------------------------------
   clear() {
@@ -153,7 +152,7 @@ class Game {
         } else {
           winnerMsg.innerHTML = `It's a draw!`;
         }
-      }, 500);
+      }, 300);
     } else {
     }
   }
@@ -164,28 +163,7 @@ class Game {
     let p2 = this.player2.snakeRoute;
     for (let i = 0; i < p1.length; i++) {
       for (let j = 0; j < p2.length; j++) {
-        //1.If they collide the same time
         if (p1[i].x === p2[j].x && p1[i].y === p2[j].y) {
-          this.player1.sound.dead.play();
-          clearInterval(this.interID);
-          this.gameOver();
-          return;
-        }
-        //2.If they collide a different time on X axes
-        if (
-          (p1[i].x - this.box === p2[j].x && p1[i].y === p2[j].y) ||
-          (p1[i].x === p2[j].x - this.box && p1[i].y === p2[j].y)
-        ) {
-          this.player1.sound.dead.play();
-          clearInterval(this.interID);
-          this.gameOver();
-          return;
-        }
-        //3.If they collide a different time on Y axes
-        if (
-          (p1[i].x === p2[j].x && p1[i].y - this.box === p2[j].y) ||
-          (p1[i].x === p2[j].x && p1[i].y === p2[j].y - this.box)
-        ) {
           this.player1.sound.dead.play();
           clearInterval(this.interID);
           this.gameOver();

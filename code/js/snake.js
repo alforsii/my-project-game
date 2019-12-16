@@ -49,7 +49,8 @@ class Snake {
       snakeX > 28 * this.game.box ||
       snakeY < 2 * this.game.box ||
       snakeY > 19 * this.game.box ||
-      this.collision(newHead, aSnake)
+      this.collision(newHead, aSnake) ||
+      this.game.playersCollision()
     ) {
       //I don't want the press-keyboard playing sound after game over.
       //That's why I wrap it inside if only game state is true - play
@@ -58,10 +59,8 @@ class Snake {
         this.sound.dead.play();
         this.state = false;
       }
-      setTimeout(() => {
-        clearInterval(this.game.interID);
-        this.game.gameOver();
-      }, 0);
+      clearInterval(this.game.interID);
+      this.game.gameOver();
       return; //also we want to stop(return) this function when collision, else will pop tail and unshift extra same head to our snake, which may cause some problem.
     }
     //-------detect  snake collision with food-----------------

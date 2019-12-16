@@ -33,6 +33,7 @@ body select {
 /* -------canvas -----------*/
 canvas {
   background: url(../img/bg.jpg);
+  background-size: 400px;
   border: 3px solid #000;
   border-radius: 10px;
   width: 70vw;
@@ -252,18 +253,18 @@ aside {
   body {
     display: flex;
     justify-content: space-around;
-    background: url(../img/newImg.png) no-repeat 0 6vw;
+    background: url(../img/newImg.png) no-repeat 0 2vw;
     /* background: url(../img/snake-gif.gif) no-repeat 0 6vw; */
     background-size: cover;
   }
   canvas {
     background: url(../img/bg.jpg);
-    /* background: teal; */
+    background-size: 400px;
     border: 3px solid #000;
     border-radius: 10px;
     width: 95vw;
     height: 60vw;
-    margin-top: 5vw;
+    margin-top: 0vw;
   }
   body select {
     width: 13vw;
@@ -283,7 +284,7 @@ aside {
     color: rgb(11, 152, 199);
     border: none;
     position: absolute;
-    top: 27vw;
+    top: 24vw;
     left: 37vw;
   }
   #canvasButtons {
@@ -301,7 +302,7 @@ aside {
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    top: 6vw;
+    top: 2vw;
     left: 0vw;
   }
   #player1 {
@@ -389,7 +390,7 @@ aside {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    background: url(../img/newImg.png) no-repeat 0vw 6vw;
+    background: url(../img/newImg.png) no-repeat 0 3vw;
     /* background: url(../img/snake-gif.gif) no-repeat 0vw 6vw; */
     background-size: cover;
   }
@@ -408,12 +409,12 @@ aside {
   /* -------canvas -----------*/
   canvas {
     background: url(../img/bg.jpg);
-    /* background: teal; */
+    background-size: 400px;
     border: 3px solid #000;
     border-radius: 10px;
     width: 95vw;
     height: 80vw;
-    margin-top: 13vw;
+    /* margin-top: 2vw; */
   }
 
   #canvas-div {
@@ -425,13 +426,13 @@ aside {
   /* buttons */
   /* ------------start button--------------- */
   #start-button {
-    font-size: 12vw;
+    font-size: 10vw;
     font-weight: bolder;
     background-color: transparent;
     color: rgb(11, 152, 199);
     border: none;
     position: absolute;
-    top: 27vw;
+    top: 24vw;
     left: 35vw;
   }
   /*----------------- canvas buttons------------- */
@@ -472,14 +473,14 @@ aside {
     justify-content: space-around;
     align-items: center;
     position: absolute;
-    top: 4vw;
+    top: 2vw;
     left: 0vw;
   }
   #player1 {
     color: #ff851b;
     width: 40vw;
     height: 7vw;
-    font-size: 5vw;
+    font-size: 4vw;
   }
   #player2div {
     display: none;
