@@ -169,7 +169,7 @@ class Game {
           this.gameOver();
           return;
         }
-        //2.If they collide a diffident time on X axes
+        //2.If they collide a different time on X axes
         if (
           (p1[i].x - this.box === p2[j].x && p1[i].y === p2[j].y) ||
           (p1[i].x === p2[j].x - this.box && p1[i].y === p2[j].y)
@@ -179,7 +179,7 @@ class Game {
           this.gameOver();
           return;
         }
-        //3.If they collide a diffident time on Y axes
+        //3.If they collide a different time on Y axes
         if (
           (p1[i].x === p2[j].x && p1[i].y - this.box === p2[j].y) ||
           (p1[i].x === p2[j].x && p1[i].y === p2[j].y - this.box)
