@@ -162,7 +162,28 @@ class Game {
     let p2 = this.player2.snakeRoute;
     for (let i = 0; i < p1.length; i++) {
       for (let j = 0; j < p2.length; j++) {
+        //1.If they collide the same time
         if (p1[i].x === p2[j].x && p1[i].y === p2[j].y) {
+          this.player1.sound.dead.play();
+          clearInterval(this.interID);
+          this.gameOver();
+          return;
+        }
+        //2.If they collide a diffident time on X axes
+        if (
+          (p1[i].x - this.box === p2[j].x && p1[i].y === p2[j].y) ||
+          (p1[i].x === p2[j].x - this.box && p1[i].y === p2[j].y)
+        ) {
+          this.player1.sound.dead.play();
+          clearInterval(this.interID);
+          this.gameOver();
+          return;
+        }
+        //3.If they collide a diffident time on Y axes
+        if (
+          (p1[i].x === p2[j].x && p1[i].y - this.box === p2[j].y) ||
+          (p1[i].x === p2[j].x && p1[i].y === p2[j].y - this.box)
+        ) {
           this.player1.sound.dead.play();
           clearInterval(this.interID);
           this.gameOver();
