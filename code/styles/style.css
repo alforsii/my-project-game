@@ -177,8 +177,69 @@ aside {
   border: none;
 }
 
+@media (min-width: 676px) and (max-width: 960px) {
+  #player2div {
+    display: none;
+  }
+  /* arrow mobile/tablet controller */
+  #arrowButtonsDiv {
+    position: absolute;
+    width: 74vw;
+    height: 40vw;
+    top: 13vw;
+  }
+  .arrowButtons {
+    padding: 45px 40px;
+    border: none;
+    border-radius: 30px;
+    color: teal;
+  }
+  .arrowBox {
+    display: flex;
+    justify-content: space-around;
+    width: 95vw;
+  }
+  #leftRight {
+    justify-content: center;
+  }
+  #left {
+    background: url(../img/arrow-key.png) no-repeat -5px -55px;
+    background-size: 200px;
+    opacity: 0.4;
+    position: absolute;
+    left: 0;
+    top: 7vw;
+  }
+  #up {
+    background: url(../img/arrow-key.png) no-repeat -60px 0px;
+    background-size: 200px;
+    padding: 40px 40px;
+    opacity: 0.4;
+    position: absolute;
+    top: -4vw;
+    right: 10vw;
+  }
+  #right {
+    background: url(../img/arrow-key.png) no-repeat -115px -55px;
+    background-size: 200px;
+    opacity: 0.4;
+    position: absolute;
+    right: 3vw;
+    top: 7vw;
+  }
+  #down {
+    background: url(../img/arrow-key.png) no-repeat -60px -115px;
+    background-size: 200px;
+    padding: 40px 40px;
+    opacity: 0.4;
+    position: absolute;
+    bottom: 9vw;
+    right: 10vw;
+  }
+}
+
 /* style for resize 475-675 */
-@media (min-width: 575px) and (max-width: 1000px) {
+@media (min-width: 575px) and (max-width: 675px) {
   body {
     display: flex;
     justify-content: space-around;
@@ -462,12 +523,12 @@ aside {
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 960px) {
   #arrowButtonsDiv {
     display: none;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 960px) {
   body a {
     display: none;
   }
