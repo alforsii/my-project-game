@@ -181,6 +181,15 @@ aside {
   #player2div {
     display: none;
   }
+  #canvasButtons {
+    display: flex;
+    width: 70vw;
+    height: 0px;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 6vw;
+  }
   /* arrow mobile/tablet controller */
   #arrowButtonsDiv {
     position: absolute;
@@ -283,7 +292,7 @@ aside {
     justify-content: space-around;
     align-items: center;
     position: relative;
-    top: 24vw;
+    top: 15vw;
   }
   #players {
     width: 100vw;
