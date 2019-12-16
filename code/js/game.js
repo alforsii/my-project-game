@@ -2,8 +2,8 @@ class Game {
   constructor() {
     this.canvas = document.getElementById('my-canvas');
     this.ctx = this.canvas.getContext('2d');
-    this.width = this.canvas.width;
-    this.height = this.canvas.height;
+    this.width = this.canvas.width = 900;
+    this.height = this.canvas.height = 630;
     this.box = 30;
     this.pos = {
       //this is random food position
@@ -43,6 +43,7 @@ class Game {
     this.exitBtn = undefined;
     this.timeSpeed = undefined;
   }
+  //select speed
   select() {
     const selected = document.getElementById('levels').selectedIndex;
     const option = document.getElementById('levels').options;

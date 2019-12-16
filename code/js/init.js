@@ -4,36 +4,6 @@ window.addEventListener('load', () => {
   const start = document.getElementById('start-button');
   const playersDiv = document.getElementById('players');
 
-  // const levels = document.getElementsByTagName('option');
-
-  sideBar.classList.add('display-none');
-  newGame.canvas.classList.add('display-none'); //
-  score1.classList.add('display-none');
-  score2.classList.add('display-none');
-  //---------for mobile phone arrow remote control ---------
-  //main div
-  arrowButtonsDiv.classList.add('display-none');
-  //divs
-  const top = document.getElementById('top');
-  const leftRight = document.getElementById('leftRight');
-  //buttons
-  const left = document.createElement('button');
-  const up = document.createElement('button');
-  const right = document.createElement('button');
-  const down = document.createElement('button');
-  top.append(up);
-  leftRight.append(left);
-  leftRight.append(down);
-  leftRight.append(right);
-  left.classList.add('arrowButtons');
-  right.classList.add('arrowButtons');
-  up.classList.add('arrowButtons');
-  down.classList.add('arrowButtons');
-  left.setAttribute('id', 'left');
-  right.setAttribute('id', 'right');
-  up.setAttribute('id', 'up');
-  down.setAttribute('id', 'down');
-
   // ---------- All click event buttons--------------------
   document.onclick = event => {
     let btnID = event.target.id;
@@ -51,10 +21,9 @@ window.addEventListener('load', () => {
           score2.classList.remove('display-none');
           newGame.canvas.classList.remove('display-none');
           document.body.style.background = '#203447';
-          // fontImg.classList.add('display-none');
           start.classList.add('display-none');
           newGame.startTheGame();
-          levels.classList.add('display-none');
+          levels.classList.add('display-none'); //this direct #levels from html
         }
         if (!newGame.player1Name.value && !newGame.player2Name.value)
           alert(`Please enter name`);

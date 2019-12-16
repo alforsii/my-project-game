@@ -5,23 +5,23 @@
 ### `To play the game:`
 
 - You need to enter your name as a player-1 or -2
-  - Left side player - 2 key code:
-    - Left - A
-    - Right - D
-    - Up - W
-    - Down - S
-  - Right side player - 1 key code:
+  - Player - 1 key code:
     - Left - arrow left <
     - Right - arrow right >
     - Up - arrow up ^
     - Down - arrow down
+  - Player - 2 key code:
+    - Left - A
+    - Right - D
+    - Up - W
+    - Down - S
 - You can play one or 2 players
 - Second player is optional, but to add player-2 you need to enter both names
 - Whoever gets a heigh score he is the winner
 
 ### `Rules:`
 
-- If you heat the borders - game over
+- If you heat the border - game over
 - If you heat yourself - game over
 - if you heat your partner - game over
 - Alright enough rules let's start the game - good luck !

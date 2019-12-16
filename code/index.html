@@ -15,17 +15,24 @@
     <script src="./js/player.js"></script>
   </head>
   <body>
-    <!-- --------My canvas Div------------------------- -->
+    <!-- --------Start canvas Div------------------------- -->
     <div id="canvasDiv">
       <div id="canvasButtons"></div>
-      <canvas id="my-canvas" width="900" height="630"></canvas>
-      <div id="arrowButtonsDiv">
-        <div id="top" class="arrowBox"></div>
-        <div id="leftRight" class="arrowBox"></div>
-        <!-- <div id="bottom" class="arrowBox"></div> -->
+      <!-- canvas -->
+      <canvas id="my-canvas" class="display-none"></canvas>
+      <!-- Mobile/tablet remote arrows -->
+      <div id="arrowButtonsDiv" class="display-none">
+        <div id="top" class="arrowBox">
+          <button id="up" class="arrowButtons"></button>
+        </div>
+        <div id="leftRight" class="arrowBox">
+          <button id="left" class="arrowButtons"></button>
+          <button id="down" class="arrowButtons"></button>
+          <button id="right" class="arrowButtons"></button>
+        </div>
       </div>
-      <!-- Left and right arrows img-->
-      <div id="sideBar">
+      <!-- Left and right arrows indicator images-->
+      <div id="sideBar" class="display-none">
         <aside id="leftSide">
           <span><button>W</button></span>
           <span>
@@ -46,9 +53,12 @@
         </aside>
       </div>
     </div>
-    <!----------- My main font image and start button ------>
+    <!-- -------------------- end canvas div------------ -->
+    <!----------- start button ------>
     <button id="start-button" type="submit">Start</button>
+    <!-- fork link -->
     <a href="https://github.com/alforsii/my-project-game"></a>
+    <!-- select levels -->
     <select id="levels">
       <option value="130">Slow</option>
       <option value="100">Mid</option>
@@ -59,12 +69,12 @@
       <!-- player-1 -->
       <div id="player1div">
         <input id="player1" class="name" type="text" placeholder="player-1" />
-        <span id="score1" class="score" type="text"></span>
+        <span id="score1" class="score display-none" type="text"></span>
       </div>
       <!-- player-2 -->
       <div id="player2div">
         <input id="player2" class="name" type="text" placeholder="player-2" />
-        <span id="score2" class="score" type="text"></span>
+        <span id="score2" class="score display-none" type="text"></span>
       </div>
     </div>
   </body>
