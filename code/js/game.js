@@ -41,7 +41,15 @@ class Game {
     this.canvasButtons = undefined;
     this.restartBtn = undefined;
     this.exitBtn = undefined;
-    this.level = { 1: 150, 2: 120, 3: 100, 4: 80 };
+    this.timeSpeed = undefined;
+  }
+  select() {
+    const selected = document.getElementById('levels').selectedIndex;
+    const option = document.getElementById('levels').options;
+    let valueIs = option[selected].value;
+    // let indexIs = option[selected].index; //for reference
+    // let textIs = option[selected].text; //for reference
+    return valueIs;
   }
   // -------------------------startTheGame()-------------------------
   startTheGame() {
@@ -66,7 +74,7 @@ class Game {
         this.player2.remote2();
         this.playersCollision();
       }
-    }, 150);
+    }, this.timeSpeed);
   }
   // //------------------------- drawGround()-------------------------
   drawGround() {

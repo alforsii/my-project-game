@@ -17,6 +17,18 @@ body a {
   opacity: 0.7;
 }
 
+body select {
+  width: 13vw;
+  font-size: 4vw;
+  margin-top: 20px;
+  background: transparent;
+  border: none;
+  color: rgb(131, 127, 127);
+  position: absolute;
+  top: 15vw;
+  right: 2vw;
+}
+
 /* -------canvas -----------*/
 canvas {
   background: teal;
@@ -70,8 +82,8 @@ aside {
   color: rgb(11, 152, 199);
   border: none;
   position: absolute;
-  top: 20vw;
-  left: 42vw;
+  top: 22vw;
+  right: 42vw;
 }
 #start-button:hover {
   color: #0f0;
@@ -174,16 +186,16 @@ aside {
     height: 60vw;
     margin-top: 13vw;
   }
-  body a {
+  body select {
+    width: 13vw;
+    font-size: 4vw;
+    margin-top: 20px;
+    background: transparent;
+    border: none;
+    color: rgb(131, 127, 127);
     position: absolute;
-    top: 5vw;
-    right: 8vw;
-    color: #000;
-    padding: 2vw;
-    background: url(../img/fork-icon.png) no-repeat;
-    background-size: 3vw;
-    height: 1vw;
-    opacity: 0.7;
+    top: 18vw;
+    right: 2vw;
   }
   #start-button {
     font-size: 10vw;
@@ -302,16 +314,17 @@ aside {
     background-size: cover;
     background-color: rgba(82, 78, 78, 0.514);
   }
-  body a {
+
+  body select {
+    width: 14vw;
+    font-size: 4vw;
+    margin-top: 20px;
+    background: transparent;
+    border: none;
+    color: rgb(131, 127, 127);
     position: absolute;
-    top: 19vw;
-    right: 8vw;
-    color: #000;
-    padding: 2vw;
-    background: url(../img/fork-icon.png) no-repeat;
-    background-size: 3vw;
-    height: 1vw;
-    opacity: 0.7;
+    top: 25vw;
+    right: 2vw;
   }
   /* -------canvas -----------*/
   canvas {
@@ -447,6 +460,9 @@ aside {
   }
 }
 @media (max-width: 676px) {
+  body a {
+    display: none;
+  }
   #leftSide,
   #rightSide {
     display: none;

@@ -1,12 +1,12 @@
 window.addEventListener('load', () => {
-  //Create new game, references to font image and buttons.
   const newGame = new Game();
-  // const fontImg = document.querySelector('body img');
+  //Create new game, references to font image and buttons.
   const start = document.getElementById('start-button');
   const playersDiv = document.getElementById('players');
+
+  // const levels = document.getElementsByTagName('option');
+
   sideBar.classList.add('display-none');
-  // const arrowImg = document.getElementById('arrow-img');
-  // arrowImg.classList.add('display-none');
   newGame.canvas.classList.add('display-none'); //
   score1.classList.add('display-none');
   score2.classList.add('display-none');
@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
   //divs
   const top = document.getElementById('top');
   const leftRight = document.getElementById('leftRight');
-  // const bottom = document.getElementById('bottom');
   //buttons
   const left = document.createElement('button');
   const up = document.createElement('button');
@@ -43,6 +42,7 @@ window.addEventListener('load', () => {
       case 'start-button':
         //Activate canvas, hide main and start the game
         if (newGame.player1Name.value || newGame.player2Name.value) {
+          newGame.timeSpeed = newGame.select();
           sideBar.classList.remove('display-none');
           arrowButtonsDiv.classList.remove('display-none');
           //this just reverse names when game starts to match keyboard.
@@ -54,6 +54,7 @@ window.addEventListener('load', () => {
           // fontImg.classList.add('display-none');
           start.classList.add('display-none');
           newGame.startTheGame();
+          levels.classList.add('display-none');
         }
         if (!newGame.player1Name.value && !newGame.player2Name.value)
           alert(`Please enter name`);
