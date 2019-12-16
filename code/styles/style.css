@@ -38,7 +38,6 @@ canvas {
   width: 70vw;
   height: 48vw;
   max-height: 630px;
-  max-width: 1500px;
 }
 aside {
   background: url(../img/arrow-key.png) 3px 5px;
@@ -179,7 +178,7 @@ aside {
 }
 
 /* style for resize 475-675 */
-@media (min-width: 575px) and (max-width: 900px) {
+@media (min-width: 575px) and (max-width: 930px) {
   body {
     display: flex;
     justify-content: space-around;
@@ -463,12 +462,12 @@ aside {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 930px) {
   #arrowButtonsDiv {
     display: none;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 930px) {
   body a {
     display: none;
   }
