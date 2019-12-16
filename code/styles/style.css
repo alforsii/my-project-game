@@ -178,7 +178,7 @@ aside {
 }
 
 /* style for resize 475-675 */
-@media (min-width: 575px) and (max-width: 930px) {
+@media (min-width: 575px) and (max-width: 1000px) {
   body {
     display: flex;
     justify-content: space-around;
@@ -462,12 +462,12 @@ aside {
   }
 }
 
-@media (min-width: 930px) {
+@media (min-width: 1000px) {
   #arrowButtonsDiv {
     display: none;
   }
 }
-@media (max-width: 930px) {
+@media (max-width: 1000px) {
   body a {
     display: none;
   }
