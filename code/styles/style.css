@@ -3,6 +3,7 @@ body {
   justify-content: space-around;
   background: url(../img/snake-gif.gif) no-repeat;
   background-size: cover;
+  background-color: #203447;
 }
 
 body a {
@@ -178,6 +179,13 @@ aside {
 
 /* style for resize 475-675 */
 @media (min-width: 575px) and (max-width: 675px) {
+  body {
+    display: flex;
+    justify-content: space-around;
+    background: url(../img/snake-gif.gif) no-repeat;
+    background-size: cover;
+    background-color: #203447;
+  }
   canvas {
     background: teal;
     border: 3px solid #000;
@@ -312,7 +320,7 @@ aside {
     align-items: center;
     background: url(../img/snake-gif.gif) no-repeat 0vw 70px;
     background-size: cover;
-    background-color: rgba(82, 78, 78, 0.514);
+    background-color: #203447;
   }
 
   body select {
@@ -323,8 +331,8 @@ aside {
     border: none;
     color: rgb(131, 127, 127);
     position: absolute;
-    top: 25vw;
-    right: 2vw;
+    top: 30vw;
+    right: 1vw;
   }
   /* -------canvas -----------*/
   canvas {
@@ -351,7 +359,7 @@ aside {
     color: rgb(11, 152, 199);
     border: none;
     position: absolute;
-    top: 25vw;
+    top: 27vw;
     left: 35vw;
   }
   /*----------------- canvas buttons------------- */
