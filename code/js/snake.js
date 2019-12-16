@@ -71,7 +71,7 @@ class Snake {
       setTimeout(() => {
         this.score++;
         this.sound.coin.play();
-      }, 500);
+      }, 300);
       // console.log('Output: this.game.food', this.game.food);
       // console.log('Output: this.snakeRoute', this.snakeRoute);
       this.game.food.randomizeImg();

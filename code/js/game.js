@@ -41,6 +41,7 @@ class Game {
     this.canvasButtons = undefined;
     this.restartBtn = undefined;
     this.exitBtn = undefined;
+    this.level = { 1: 150, 2: 120, 3: 100, 4: 80 };
   }
   // -------------------------startTheGame()-------------------------
   startTheGame() {
@@ -49,6 +50,7 @@ class Game {
       this.clear();
       this.drawGround();
       this.food.getImg();
+
       if (this.player1Name.value && !this.player2Name.value) {
         this.player1.drawSnake();
         this.player1.remote1();
@@ -64,7 +66,7 @@ class Game {
         this.player2.remote2();
         this.playersCollision();
       }
-    }, 130);
+    }, 150);
   }
   // //------------------------- drawGround()-------------------------
   drawGround() {
@@ -88,14 +90,14 @@ class Game {
     this.ctx.strokeStyle = '#203447s';
     this.ctx.strokeRect(this.box, 2 * this.box, 28 * this.box, 18 * this.box);
     //--Display score update--
-    //setTimeout just for score to catch the coin sound as a delay that for 500ms too to separate eat sound from score sound.
+    //setTimeout just for score to catch the coin sound as I delay that for 500ms too, to separate eat sound from score sound.
     setTimeout(() => {
       if (this.player1Name.value) {
-        //score1 is direct id name of a span for for score without creating reference
+        //score1 is direct id name of a span for score without creating reference
         score1.innerHTML = `${this.player1.score}`;
       }
       if (this.player2Name.value) {
-        //score2 also is direct id name of a span for for score without creating reference
+        //score2 also is direct id name of a span for score without creating reference
         score2.innerHTML = `${this.player2.score}`;
       }
     }, 500);

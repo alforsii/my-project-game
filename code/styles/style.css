@@ -1,18 +1,22 @@
 body {
   display: flex;
-  /* flex-direction: column-reverse; */
   justify-content: space-around;
-  align-items: center;
-  width: 100vw;
   background: url(../img/snake-gif.gif) no-repeat;
   background-size: cover;
 }
-/* ---------font image------------- */
-/* @media (min-width: 575px) {
-  body img {
-    width: 100%;
-  }
-} */
+
+body a {
+  position: absolute;
+  top: 5vw;
+  right: 8vw;
+  color: #000;
+  padding: 2vw;
+  background: url(../img/fork-icon.png) no-repeat;
+  background-size: 3vw;
+  height: 1vw;
+  opacity: 0.7;
+}
+
 /* -------canvas -----------*/
 canvas {
   background: teal;
@@ -22,20 +26,10 @@ canvas {
   height: 48vw;
   max-height: 630px;
 }
-/* #canvas-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
 aside {
-  background: url(../img/arrow-key.png) 0px 5px;
+  background: url(../img/arrow-key.png) 3px 5px;
   background-size: 100px;
   height: 100px;
-}
-#leftSide,
-#rightSide {
-  width: 100px;
 }
 #leftSide span,
 #rightSide span {
@@ -46,14 +40,16 @@ aside {
 #leftSide {
   float: left;
   position: absolute;
+  width: 100px;
   top: 15vw;
-  left: 5vw;
+  left: 3vw;
 }
 #rightSide {
   float: right;
   position: absolute;
+  width: 100px;
   top: 15vw;
-  right: 5vw;
+  right: 2vw;
 }
 #leftSide button,
 #rightSide button {
@@ -62,7 +58,7 @@ aside {
   color: #fff;
   font-weight: bold;
   font-size: 12px;
-  padding: 10px 30px;
+  padding: 10px 15px;
   opacity: 0.5;
 }
 /* buttons */
@@ -125,16 +121,13 @@ aside {
 }
 /* players div */
 #players {
-  width: 70vw;
+  width: 75vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: absolute;
   top: 1vw;
   left: 12vw;
-}
-#players div {
-  /* background-color: rgb(17, 15, 15, 0.2); */
 }
 .flip-players {
   flex-direction: row-reverse;
@@ -170,151 +163,9 @@ aside {
   background-color: transparent;
   border: none;
 }
-/* resize max 575px */
-@media (max-width: 575px) {
-  body {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    background: url(../img/snake-gif.gif) no-repeat 0vw 70px;
-    background-size: cover;
-    background-color: rgba(82, 78, 78, 0.514);
-  }
-  /* -------------------- */
-  /* ---------font image------------- */
-  /* body img {
-    width: 0%;
-  } */
-  /* -------canvas -----------*/
-  canvas {
-    background: teal;
-    border: 3px solid #000;
-    border-radius: 10px;
-    width: 95vw;
-    height: 80vw;
-    margin-top: 13vw;
-  }
 
-  #canvas-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  /* buttons */
-  /* ------------start button--------------- */
-  #start-button {
-    font-size: 12vw;
-    font-weight: bolder;
-    background-color: transparent;
-    color: rgb(11, 152, 199);
-    border: none;
-    position: absolute;
-    top: 30vw;
-    left: 35vw;
-  }
-  /*----------------- canvas buttons------------- */
-  #canvasButtons {
-    display: flex;
-    width: 80vw;
-    height: 0px;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    top: 26vw;
-  }
-
-  #restart-button {
-    color: rgb(67, 73, 69);
-    font-size: 4vw;
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-  }
-  #msg-button {
-    color: red;
-    font-size: 3vw;
-    background-color: transparent;
-    border: none;
-  }
-  #exit-button {
-    color: rgb(67, 73, 69);
-    font-size: 4vw;
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-  }
-  /* players div */
-  #players {
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    top: 4vw;
-    left: 0vw;
-  }
-  #player1 {
-    color: #ff851b;
-    width: 40vw;
-    height: 7vw;
-    font-size: 6vw;
-  }
-  #player2div {
-    display: none;
-  }
-  #score1 {
-    color: #ff851b;
-    font-size: 6vw;
-  }
-  .name {
-    font-family: monospace;
-    text-align: center;
-    width: 20vw;
-    height: 5vw;
-    font-size: 3vw;
-    background-color: transparent;
-    border: none;
-  }
-
-  /* -------------------- */
-
-  .arrowButtons {
-    padding: 45px 40px;
-    border: 1px solid rgb(8, 8, 109);
-    border-radius: 30px;
-    color: teal;
-  }
-  .arrowBox {
-    display: flex;
-    justify-content: space-around;
-    width: 95vw;
-  }
-  #leftRight {
-    justify-content: center;
-  }
-  #left {
-    background: url(../img/arrow-key.png) no-repeat -5px -55px;
-    background-size: 200px;
-  }
-  #up {
-    background: url(../img/arrow-key.png) no-repeat -60px 0px;
-    background-size: 200px;
-    padding: 40px 40px;
-  }
-  #right {
-    background: url(../img/arrow-key.png) no-repeat -115px -55px;
-    background-size: 200px;
-  }
-  #down {
-    background: url(../img/arrow-key.png) no-repeat -60px -115px;
-    background-size: 200px;
-    padding: 40px 40px;
-  }
-}
 /* style for resize 475-675 */
-@media (min-width: 475px) and (max-width: 675px) {
+@media (min-width: 575px) and (max-width: 675px) {
   canvas {
     background: teal;
     border: 3px solid #000;
@@ -323,8 +174,19 @@ aside {
     height: 60vw;
     margin-top: 13vw;
   }
+  body a {
+    position: absolute;
+    top: 5vw;
+    right: 8vw;
+    color: #000;
+    padding: 2vw;
+    background: url(../img/fork-icon.png) no-repeat;
+    background-size: 3vw;
+    height: 1vw;
+    opacity: 0.7;
+  }
   #start-button {
-    font-size: 12vw;
+    font-size: 10vw;
     font-weight: bolder;
     background-color: transparent;
     color: rgb(11, 152, 199);
@@ -429,12 +291,162 @@ aside {
   }
 }
 
+/* resize max 575px */
+@media (max-width: 575px) {
+  body {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/snake-gif.gif) no-repeat 0vw 70px;
+    background-size: cover;
+    background-color: rgba(82, 78, 78, 0.514);
+  }
+  body a {
+    position: absolute;
+    top: 19vw;
+    right: 8vw;
+    color: #000;
+    padding: 2vw;
+    background: url(../img/fork-icon.png) no-repeat;
+    background-size: 3vw;
+    height: 1vw;
+    opacity: 0.7;
+  }
+  /* -------canvas -----------*/
+  canvas {
+    background: teal;
+    border: 3px solid #000;
+    border-radius: 10px;
+    width: 95vw;
+    height: 80vw;
+    margin-top: 13vw;
+  }
+
+  #canvas-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* buttons */
+  /* ------------start button--------------- */
+  #start-button {
+    font-size: 12vw;
+    font-weight: bolder;
+    background-color: transparent;
+    color: rgb(11, 152, 199);
+    border: none;
+    position: absolute;
+    top: 25vw;
+    left: 35vw;
+  }
+  /*----------------- canvas buttons------------- */
+  #canvasButtons {
+    display: flex;
+    width: 80vw;
+    height: 0px;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 26vw;
+  }
+
+  #restart-button {
+    color: rgb(67, 73, 69);
+    font-size: 4vw;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+  }
+  #msg-button {
+    color: red;
+    font-size: 3vw;
+    background-color: transparent;
+    border: none;
+  }
+  #exit-button {
+    color: rgb(67, 73, 69);
+    font-size: 4vw;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+  }
+  /* players div */
+  #players {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 4vw;
+    left: 0vw;
+  }
+  #player1 {
+    color: #ff851b;
+    width: 40vw;
+    height: 7vw;
+    font-size: 6vw;
+  }
+  #player2div {
+    display: none;
+  }
+  #score1 {
+    color: #ff851b;
+    font-size: 6vw;
+  }
+  .name {
+    font-family: monospace;
+    text-align: center;
+    width: 20vw;
+    height: 5vw;
+    font-size: 3vw;
+    background-color: transparent;
+    border: none;
+  }
+
+  /* -------------------- */
+
+  .arrowButtons {
+    padding: 45px 40px;
+    border: 1px solid rgb(8, 8, 109);
+    border-radius: 30px;
+    color: teal;
+  }
+  .arrowBox {
+    display: flex;
+    justify-content: space-around;
+    width: 95vw;
+  }
+  #leftRight {
+    justify-content: center;
+  }
+  #left {
+    background: url(../img/arrow-key.png) no-repeat -5px -55px;
+    background-size: 200px;
+  }
+  #up {
+    background: url(../img/arrow-key.png) no-repeat -60px 0px;
+    background-size: 200px;
+    padding: 40px 40px;
+  }
+  #right {
+    background: url(../img/arrow-key.png) no-repeat -115px -55px;
+    background-size: 200px;
+  }
+  #down {
+    background: url(../img/arrow-key.png) no-repeat -60px -115px;
+    background-size: 200px;
+    padding: 40px 40px;
+  }
+}
+
 @media (min-width: 676px) {
   #arrowButtonsDiv {
     display: none;
   }
 }
-@media (max-width: 850px) {
+@media (max-width: 676px) {
   #leftSide,
   #rightSide {
     display: none;

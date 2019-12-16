@@ -34,7 +34,6 @@ class Player extends Snake {
   remote2() {
     document.addEventListener('keydown', event => {
       const key = event.keyCode;
-      console.log('Output for: Player -> key', key);
       event.preventDefault();
       if (this.state) {
         if (key === 65 && this.dir !== 'RIGHT') {
