@@ -163,7 +163,12 @@ class Game {
     let p2 = this.player2.snakeRoute;
     for (let i = 0; i < p1.length; i++) {
       for (let j = 0; j < p2.length; j++) {
-        if (p1[i].x === p2[j].x && p1[i].y === p2[j].y) {
+        if (
+          p1[i].x === p2[j].x &&
+          p1[i].y === p2[j].y &&
+          this.player1.state &&
+          this.player2.state
+        ) {
           return true;
         }
         return false;
