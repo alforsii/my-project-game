@@ -164,11 +164,9 @@ class Game {
     for (let i = 0; i < p1.length; i++) {
       for (let j = 0; j < p2.length; j++) {
         if (p1[i].x === p2[j].x && p1[i].y === p2[j].y) {
-          this.player1.sound.dead.play();
-          clearInterval(this.interID);
-          this.gameOver();
-          return;
+          return true;
         }
+        return false;
       }
     }
   }

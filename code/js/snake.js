@@ -60,7 +60,9 @@ class Snake {
         this.state = false;
       }
       clearInterval(this.game.interID);
-      this.game.gameOver();
+      setTimeout(() => {
+        this.game.gameOver();
+      }, 0);
       return; //also we want to stop(return) this function when collision, else will pop tail and unshift extra same head to our snake, which may cause some problem.
     }
     //-------detect  snake collision with food-----------------
