@@ -294,7 +294,7 @@ aside {
     justify-content: space-around;
     align-items: center;
     position: relative;
-    top: 15vw;
+    top: 12vw;
   }
   #players {
     width: 100vw;
@@ -443,7 +443,7 @@ aside {
     justify-content: space-around;
     align-items: center;
     position: relative;
-    top: 26vw;
+    top: 15vw;
   }
 
   #restart-button {
