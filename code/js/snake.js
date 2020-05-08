@@ -20,6 +20,7 @@ class Snake {
     for (let i = 0; i < aSnake.length; i++) {
       this.game.ctx.fillStyle = i === 0 ? this.color : 'lightGreen';
       this.game.ctx.fillRect(
+        //add 2 and -4 - it's just to place the snake box inside the grid boxes
         aSnake[i].x + 2,
         aSnake[i].y + 2,
         aSnake[i].w - 4,
